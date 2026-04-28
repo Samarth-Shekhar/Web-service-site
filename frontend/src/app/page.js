@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import ClientLogos from '@/components/ClientLogos';
 import ServicesPreview from '@/components/ServicesPreview';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
+import ServiceSelector from '@/components/ServiceSelector';
 import WhyUs from '@/components/WhyUs';
 import Testimonials from '@/components/Testimonials';
 import CTABanner from '@/components/CTABanner';
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ServiceSelector />
         <ClientLogos />
         <ServicesPreview />
         <ProjectsShowcase />

@@ -149,6 +149,27 @@
   pointer-events: none;
 }
 
+.floatingImage {
+  animation: float-hero 6s ease-in-out infinite;
+}
+
+@keyframes float-hero {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+.cursor {
+  font-weight: 300;
+  color: var(--accent-primary);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* Stats bar */
 .stats {
   display: flex;

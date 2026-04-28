@@ -19,13 +19,6 @@
   gap: 24px;
 }
 
-.cardLink {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-}
-
 .card {
   position: relative;
   background: var(--bg-card);
@@ -44,12 +37,16 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.1);
 }
 
+.cardHeaderLink {
+  text-decoration: none;
+  display: block;
+}
+
 .cardImage {
   position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
-  background: var(--bg-card-hover);
 }
 
 .image {
@@ -60,21 +57,23 @@
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-.cardNumber {
+.categoryBadge {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 4px 10px;
-  background: rgba(0,0,0,0.6);
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   border-radius: var(--radius-full);
-  font-size: 0.7rem;
-  font-weight: 700;
-  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cardBody {
@@ -84,63 +83,94 @@
   flex-grow: 1;
 }
 
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 .cardTitle {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--text-main);
+  transition: color 0.2s ease;
+}
+
+.card:hover .cardTitle {
+  color: var(--accent-primary);
 }
 
 .description {
   color: var(--text-muted);
-  font-size: 0.88rem;
-  line-height: 1.7;
-  margin-bottom: 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .tag {
-  font-size: 0.68rem;
-  font-weight: 500;
-  padding: 3px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
   color: var(--text-muted);
-  transition: all var(--transition-fast);
-}
-
-.card:hover .tag {
-  border-color: var(--border-accent);
-  color: var(--accent-primary);
 }
 
 .cardFooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+.btnOutline {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
-}
-
-.card:hover .cardFooter {
-  color: var(--accent-primary);
-}
-
-.learnMore {
-  font-size: 0.82rem;
+  justify-content: center;
+  padding: 10px 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnOutline:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-accent);
+}
+
+.btnWhatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  background: #25D366;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnWhatsapp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1024px) {
@@ -151,4 +181,5 @@
   .servicesSection { padding: 72px 0; }
   .header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .grid { grid-template-columns: 1fr; }
+  .cardFooter { grid-template-columns: 1fr; }
 }

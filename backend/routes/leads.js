@@ -26,7 +26,7 @@ const sendNotificationEmail = async (lead) => {
     await transporter.sendMail({
       from: `"NexusDigital" <${process.env.EMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
-      subject: `New Lead: ${lead.name} - ${lead.service}`,
+      subject: `New Lead: ${lead.name} - ${lead.serviceRequested}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #7c3aed;">New Lead Received</h2>
@@ -34,7 +34,7 @@ const sendNotificationEmail = async (lead) => {
             <tr><td style="padding: 8px; font-weight: bold;">Name:</td><td style="padding: 8px;">${lead.name}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${lead.email}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;">${lead.phone}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${lead.service}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${lead.serviceRequested}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Message:</td><td style="padding: 8px;">${lead.message || 'N/A'}</td></tr>
           </table>
         </div>
@@ -50,13 +50,13 @@ const sendNotificationEmail = async (lead) => {
 // @access  Public
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, service, message } = req.body;
+    const { name, email, phone, serviceRequested, message } = req.body;
 
     const lead = await Lead.create({
       name,
       email,
       phone,
-      service,
+      serviceRequested,
       message
     });
 

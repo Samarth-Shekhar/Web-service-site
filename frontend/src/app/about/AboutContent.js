@@ -1,15 +1,40 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import ScrollReveal from '@/components/ScrollReveal';
 import CTABanner from '@/components/CTABanner';
 import styles from './about.module.css';
 
 const stats = [
-  { value: '150+', label: 'Projects Completed' },
-  { value: '50+', label: 'Happy Clients' },
-  { value: '3+', label: 'Years Experience' },
-  { value: '20+', label: 'Team Members' },
+  { value: 10, suffix: '+', label: 'Projects Completed' },
+  { value: 5, suffix: '+', label: 'Happy Clients' },
+  { value: 1, suffix: '+', label: 'Years Experience' },
+  { value: 5, suffix: '+', label: 'Team Members' },
 ];
+
+function AnimatedCounter({ endValue, suffix }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000;
+    const increment = endValue / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= endValue) {
+        setCount(endValue);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [endValue]);
+
+  return <span>{count}{suffix}</span>;
+}
 
 const values = [
   {
@@ -44,13 +69,6 @@ const values = [
   }
 ];
 
-const team = [
-  { name: 'Samarth Shekhar', role: 'Founder & CEO', initials: 'SS' },
-  { name: 'Aarav Kumar', role: 'Lead Developer', initials: 'AK' },
-  { name: 'Nisha Gupta', role: 'Design Lead', initials: 'NG' },
-  { name: 'Rohan Singh', role: 'AI Engineer', initials: 'RS' },
-];
-
 export default function AboutContent() {
   return (
     <div className={styles.page}>
@@ -78,7 +96,9 @@ export default function AboutContent() {
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 100}>
                 <div className={styles.statCard}>
-                  <div className={styles.statValue}>{stat.value}</div>
+                  <div className={styles.statValue}>
+                    <AnimatedCounter endValue={stat.value} suffix={stat.suffix} />
+                  </div>
                   <div className={styles.statLabel}>{stat.label}</div>
                 </div>
               </ScrollReveal>

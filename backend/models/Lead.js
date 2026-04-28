@@ -19,7 +19,7 @@ const leadSchema = new mongoose.Schema({
     required: [true, 'Phone number is required'],
     trim: true
   },
-  service: {
+  serviceRequested: {
     type: String,
     required: [true, 'Service is required'],
     trim: true
@@ -51,4 +51,4 @@ leadSchema.index({ email: 1 });
 leadSchema.index({ status: 1 });
 leadSchema.index({ createdAt: -1 });
 
-module.exports = mongoose.model('Lead', leadSchema);
+module.exports = mongoose.model('Client', leadSchema);

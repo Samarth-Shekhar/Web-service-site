@@ -10,6 +10,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const leadRoutes = require('./routes/leads');
 const serviceRoutes = require('./routes/services');
+const paymentRoutes = require('./routes/payments');
 
 const app = express();
 
@@ -44,6 +45,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/auth', authRoutes);
 app.use('/api/leads', leadRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -55,7 +57,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // 404 handler
-app.use('*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 

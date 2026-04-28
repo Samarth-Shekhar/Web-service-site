@@ -15,7 +15,7 @@ const serviceSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['development', 'ai-automation', 'design', 'marketing', 'other-services']
+    enum: ['Technical', 'Academic']
   },
   icon: {
     type: String,
