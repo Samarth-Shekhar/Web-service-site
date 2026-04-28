@@ -47,7 +47,7 @@ export default function Hero() {
           <div className={styles.imageSide}>
             <div className={styles.heroImageWrapper}>
               <Image 
-                src="/images/hero-dashboard.png" 
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/hero-dashboard.png`}
                 alt="Premium SaaS dashboard built by NexusDigital"
                 width={600}
                 height={400}

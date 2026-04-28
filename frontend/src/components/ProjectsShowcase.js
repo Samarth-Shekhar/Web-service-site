@@ -11,7 +11,7 @@ const projects = [
     title: 'ShopVault E-Commerce',
     category: 'Web Development',
     description: 'Full-stack e-commerce platform with real-time inventory, Stripe payments, and admin dashboard.',
-    image: '/images/project-ecommerce.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/project-ecommerce.png`,
     tech: ['Next.js', 'Stripe', 'MongoDB'],
     link: '/portfolio'
   },
@@ -20,7 +20,7 @@ const projects = [
     title: 'DataPulse Analytics',
     category: 'SaaS Platform',
     description: 'Enterprise analytics dashboard with real-time data streams, custom visualizations, and team collaboration.',
-    image: '/images/project-saas.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/project-saas.png`,
     tech: ['React', 'D3.js', 'PostgreSQL'],
     link: '/portfolio'
   },
@@ -29,7 +29,7 @@ const projects = [
     title: 'PayFlow Mobile',
     category: 'Mobile App',
     description: 'Cross-platform fintech app for peer-to-peer payments, bill splitting, and expense tracking.',
-    image: '/images/project-mobile.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/project-mobile.png`,
     tech: ['React Native', 'Node.js', 'Firebase'],
     link: '/portfolio'
   },
@@ -38,7 +38,7 @@ const projects = [
     title: 'MediConnect Health',
     category: 'Healthcare',
     description: 'Patient management system with appointment scheduling, telemedicine, and health metrics tracking.',
-    image: '/images/project-healthcare.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/project-healthcare.png`,
     tech: ['Next.js', 'Python', 'AWS'],
     link: '/portfolio'
   }

@@ -11,7 +11,7 @@ const services = [
     title: 'Web & App Development',
     description: 'Full-stack web applications and cross-platform mobile apps built with React, Next.js, and Node.js for maximum performance.',
     tags: ['React', 'Next.js', 'Node.js', 'MongoDB'],
-    image: '/images/service-webdev.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/service-webdev.png`,
     link: '/services/web-development'
   },
   {
@@ -19,7 +19,7 @@ const services = [
     title: 'AI & Automation',
     description: 'Custom AI chatbots, LLM integrations, and intelligent workflow automation that reduce costs and scale operations.',
     tags: ['OpenAI', 'Python', 'LangChain', 'RAG'],
-    image: '/images/service-ai.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/service-ai.png`,
     link: '/services/ai-chatbots'
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: 'UI/UX Design',
     description: 'Research-driven, pixel-perfect interfaces and design systems that convert visitors into loyal users.',
     tags: ['Figma', 'Prototyping', 'Design Systems'],
-    image: '/images/service-design.png',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/service-design.png`,
     link: '/services/ui-ux-design'
   }
 ];
