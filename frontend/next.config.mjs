@@ -11,6 +11,7 @@ const nextConfig = {
   output: 'export',
   basePath: repo,
   assetPrefix: repo,
+  trailingSlash: true,
   images: {
     unoptimized: true, // Required for static HTML export
   },
