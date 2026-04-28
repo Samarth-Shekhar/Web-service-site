@@ -10,7 +10,8 @@ const SLUGS = [
   'api-development', 'cloud-hosting', 'seo-optimization', 'performance-marketing', 
   'social-media', 'ui-ux-design', 'research-paper', 'thesis-dissertation', 
   'data-analysis', 'academic-editing', 'literature-review', 'research-proposal', 
-  'journal-publication', 'plagiarism-check', 'statistical-consulting'
+  'journal-publication', 'plagiarism-check', 'statistical-consulting',
+  'ai-chatbots', 'app-development', 'web-development'
 ];
 
 export function generateStaticParams() {

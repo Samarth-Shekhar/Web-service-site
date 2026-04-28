@@ -26,9 +26,7 @@ app.use('/api/', limiter);
 
 // CORS
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL 
-    : ['http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'https://samarth-shekhar.github.io'],
   credentials: true
 }));
 
