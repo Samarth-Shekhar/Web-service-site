@@ -5,6 +5,16 @@ import { useRouter } from 'next/navigation';
 import styles from './ServiceSelector.module.css';
 import ScrollReveal from './ScrollReveal';
 
+const FALLBACK_SERVICES = [
+  { _id: '1', title: 'Website Design', slug: 'website-design', category: 'Technical', icon: '🌐' },
+  { _id: '2', title: 'Web Application', slug: 'web-application', category: 'Technical', icon: '💻' },
+  { _id: '3', title: 'E-commerce Solutions', slug: 'ecommerce-solutions', category: 'Technical', icon: '🛍️' },
+  { _id: '4', title: 'AI Chatbots', slug: 'ai-chatbots', category: 'AI & Automation', icon: '🤖' },
+  { _id: '5', title: 'Research Paper', slug: 'research-paper', category: 'Academic', icon: '📝' },
+  { _id: '6', title: 'Data Analysis', slug: 'data-analysis', category: 'Academic', icon: '📊' },
+  { _id: '7', title: 'Journal Publication', slug: 'journal-publication', category: 'Academic', icon: '📚' }
+];
+
 export default function ServiceSelector() {
   const [services, setServices] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -14,16 +24,18 @@ export default function ServiceSelector() {
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch dynamic services from the backend
     const fetchServices = async () => {
       try {
         const res = await fetch('http://localhost:5000/api/services');
         const data = await res.json();
-        if (data.success) {
+        if (data.success && data.data && data.data.length > 0) {
           setServices(data.data);
+        } else {
+          setServices(FALLBACK_SERVICES);
         }
       } catch (err) {
-        console.error('Failed to fetch services:', err);
+        console.error('Failed to fetch services, using fallback:', err);
+        setServices(FALLBACK_SERVICES);
       } finally {
         setLoading(false);
       }
@@ -42,9 +54,13 @@ export default function ServiceSelector() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Group services by category
-  const technicalServices = services.filter(s => s.category === 'Technical' && s.title.toLowerCase().includes(searchQuery.toLowerCase()));
-  const academicServices = services.filter(s => s.category === 'Academic' && s.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  // Filter based on search
+  const filtered = services.filter(s => s.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  
+  // Group services
+  const technicalServices = filtered.filter(s => s.category === 'Technical' || s.category === 'Technical Services');
+  const academicServices = filtered.filter(s => s.category === 'Academic' || s.category === 'Academic Services');
+  const otherServices = filtered.filter(s => s.category !== 'Technical' && s.category !== 'Technical Services' && s.category !== 'Academic' && s.category !== 'Academic Services');
 
   const handleSelect = (slug) => {
     setIsOpen(false);
@@ -88,8 +104,8 @@ export default function ServiceSelector() {
                     <div className={styles.categoryGroup}>
                       <h3 className={styles.categoryTitle}>Technical Services</h3>
                       <ul className={styles.serviceList}>
-                        {technicalServices.map(service => (
-                          <li key={service._id} onClick={() => handleSelect(service.slug)}>
+                        {technicalServices.map((service, i) => (
+                          <li key={service._id || i} onClick={() => handleSelect(service.slug)}>
                             <span className={styles.serviceIcon}>{service.icon}</span>
                             {service.title}
                           </li>
@@ -102,8 +118,8 @@ export default function ServiceSelector() {
                     <div className={styles.categoryGroup}>
                       <h3 className={styles.categoryTitle}>Academic & Research Services</h3>
                       <ul className={styles.serviceList}>
-                        {academicServices.map(service => (
-                          <li key={service._id} onClick={() => handleSelect(service.slug)}>
+                        {academicServices.map((service, i) => (
+                          <li key={service._id || i} onClick={() => handleSelect(service.slug)}>
                             <span className={styles.serviceIcon}>{service.icon}</span>
                             {service.title}
                           </li>
@@ -112,7 +128,21 @@ export default function ServiceSelector() {
                     </div>
                   )}
 
-                  {technicalServices.length === 0 && academicServices.length === 0 && (
+                  {otherServices.length > 0 && (
+                    <div className={styles.categoryGroup}>
+                      <h3 className={styles.categoryTitle}>AI & Other Services</h3>
+                      <ul className={styles.serviceList}>
+                        {otherServices.map((service, i) => (
+                          <li key={service._id || i} onClick={() => handleSelect(service.slug)}>
+                            <span className={styles.serviceIcon}>{service.icon}</span>
+                            {service.title}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {filtered.length === 0 && (
                     <div className={styles.noResults}>No services found matching "{searchQuery}"</div>
                   )}
                 </div>
