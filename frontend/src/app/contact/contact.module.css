@@ -1,0 +1,37 @@
+.page { padding-top: var(--nav-height); }
+
+.hero { position: relative; padding: 80px 0 40px; text-align: center; overflow: hidden; }
+.heroOrb { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 70%); top: -200px; left: 50%; transform: translateX(-50%); filter: blur(60px); }
+.heroTitle { font-family: var(--font-outfit); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.03em; }
+.heroSubtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+.contactSection { padding: 40px 0 var(--section-padding); }
+.contactGrid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; }
+
+.formCard { padding: 44px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); backdrop-filter: blur(20px); }
+.formTitle { font-family: var(--font-outfit); font-size: 1.5rem; font-weight: 600; margin-bottom: 32px; color: var(--text-main); }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.submitBtn { width: 100%; margin-top: 8px; }
+
+.statusMessage { padding: 14px 18px; border-radius: var(--radius-md); font-size: 0.88rem; margin-bottom: 16px; }
+.success { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #10b981; }
+.error { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+.spinner { width: 16px; height: 16px; border: 2px solid rgba(1, 13, 13, 0.3); border-top-color: #010d0d; border-radius: 50%; animation: spin 0.6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.infoSide { display: flex; flex-direction: column; gap: 16px; }
+.infoCard { padding: 28px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); transition: all var(--transition-base); }
+.infoCard:hover { border-color: var(--border-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 245, 212, 0.1); }
+.infoIcon { font-size: 1.5rem; margin-bottom: 10px; }
+.infoCard h3 { font-family: var(--font-outfit); font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+.infoLink { font-size: 0.92rem; color: var(--accent-primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 4px; transition: color var(--transition-base); }
+.infoLink:hover { filter: brightness(1.2); }
+.infoCard p { font-size: 0.8rem; color: var(--text-muted); }
+.highlight { font-size: 1.2rem !important; font-weight: 700; color: var(--accent-primary) !important; }
+
+@media (max-width: 1024px) {
+  .contactGrid { grid-template-columns: 1fr; }
+  .infoSide { display: grid; grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) { .formRow { grid-template-columns: 1fr; } .formCard { padding: 24px; } .infoSide { grid-template-columns: 1fr; } }
