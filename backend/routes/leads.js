@@ -1,11 +1,11 @@
 const express = require('express');
-const Lead = require('../models/Lead');
+const SupabaseService = require('../services/supabaseService');
 const { protect } = require('../middleware/auth');
 const nodemailer = require('nodemailer');
 
 const router = express.Router();
 
-// Email transporter setup
+// Email transporter setup (keeping existing logic)
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST || 'smtp.gmail.com',
@@ -26,7 +26,7 @@ const sendNotificationEmail = async (lead) => {
     await transporter.sendMail({
       from: `"NexusDigital" <${process.env.EMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
-      subject: `New Lead: ${lead.name} - ${lead.serviceRequested}`,
+      subject: `New Lead: ${lead.name} - ${lead.service_requested}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #7c3aed;">New Lead Received</h2>
@@ -34,7 +34,7 @@ const sendNotificationEmail = async (lead) => {
             <tr><td style="padding: 8px; font-weight: bold;">Name:</td><td style="padding: 8px;">${lead.name}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${lead.email}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;">${lead.phone}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${lead.serviceRequested}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${lead.service_requested}</td></tr>
             <tr><td style="padding: 8px; font-weight: bold;">Message:</td><td style="padding: 8px;">${lead.message || 'N/A'}</td></tr>
           </table>
         </div>
@@ -50,13 +50,16 @@ const sendNotificationEmail = async (lead) => {
 // @access  Public
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, serviceRequested, message } = req.body;
+    const { name, email, phone, serviceRequested, serviceRequired, service, message } = req.body;
 
-    const lead = await Lead.create({
+    // Use whichever field name the frontend is sending
+    const serviceName = serviceRequested || serviceRequired || service || 'General Inquiry';
+
+    const lead = await SupabaseService.createClient({
       name,
       email,
       phone,
-      serviceRequested,
+      service_requested: serviceName,
       message
     });
 
@@ -69,13 +72,6 @@ router.post('/', async (req, res) => {
       data: lead
     });
   } catch (err) {
-    if (err.name === 'ValidationError') {
-      const messages = Object.values(err.errors).map(val => val.message);
-      return res.status(400).json({
-        success: false,
-        message: messages.join(', ')
-      });
-    }
     res.status(500).json({
       success: false,
       message: 'Server error',
@@ -91,25 +87,15 @@ router.get('/', protect, async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
-    const skip = (page - 1) * limit;
     const status = req.query.status;
     const search = req.query.search;
 
-    let query = {};
-    if (status && status !== 'all') query.status = status;
-    if (search) {
-      query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { email: { $regex: search, $options: 'i' } },
-        { phone: { $regex: search, $options: 'i' } }
-      ];
-    }
-
-    const total = await Lead.countDocuments(query);
-    const leads = await Lead.find(query)
-      .sort({ createdAt: -1 })
-      .skip(skip)
-      .limit(limit);
+    const { data: leads, total } = await SupabaseService.getClients({
+      page,
+      limit,
+      status,
+      search
+    });
 
     res.status(200).json({
       success: true,
@@ -135,21 +121,11 @@ router.get('/', protect, async (req, res) => {
 // @access  Private
 router.get('/stats', protect, async (req, res) => {
   try {
-    const total = await Lead.countDocuments();
-    const newLeads = await Lead.countDocuments({ status: 'new' });
-    const contacted = await Lead.countDocuments({ status: 'contacted' });
-    const converted = await Lead.countDocuments({ status: 'converted' });
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayLeads = await Lead.countDocuments({ createdAt: { $gte: today } });
-
-    const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-    const monthlyLeads = await Lead.countDocuments({ createdAt: { $gte: thisMonth } });
+    const stats = await SupabaseService.getClientStats();
 
     res.status(200).json({
       success: true,
-      data: { total, newLeads, contacted, converted, todayLeads, monthlyLeads }
+      data: stats
     });
   } catch (err) {
     res.status(500).json({
@@ -165,10 +141,7 @@ router.get('/stats', protect, async (req, res) => {
 // @access  Private
 router.put('/:id', protect, async (req, res) => {
   try {
-    const lead = await Lead.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
+    const lead = await SupabaseService.updateClient(req.params.id, req.body);
 
     if (!lead) {
       return res.status(404).json({
@@ -192,15 +165,7 @@ router.put('/:id', protect, async (req, res) => {
 // @access  Private
 router.delete('/:id', protect, async (req, res) => {
   try {
-    const lead = await Lead.findByIdAndDelete(req.params.id);
-
-    if (!lead) {
-      return res.status(404).json({
-        success: false,
-        message: 'Lead not found'
-      });
-    }
-
+    await SupabaseService.deleteClient(req.params.id);
     res.status(200).json({ success: true, message: 'Lead deleted' });
   } catch (err) {
     res.status(500).json({

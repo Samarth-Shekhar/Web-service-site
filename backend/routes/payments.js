@@ -1,5 +1,5 @@
 const express = require('express');
-const Payment = require('../models/Payment');
+const SupabaseService = require('../services/supabaseService');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -11,11 +11,11 @@ router.post('/', async (req, res) => {
   try {
     const { clientId, amount, paymentStatus, paymentMethod } = req.body;
 
-    const payment = await Payment.create({
-      clientId,
+    const payment = await SupabaseService.createPayment({
+      client_id: clientId,
       amount,
-      paymentStatus,
-      paymentMethod
+      payment_status: paymentStatus,
+      payment_method: paymentMethod
     });
 
     res.status(201).json({ success: true, data: payment });
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 // @access  Private
 router.get('/', protect, async (req, res) => {
   try {
-    const payments = await Payment.find().populate('clientId', 'name email').sort('-createdAt');
+    const payments = await SupabaseService.getAllPayments();
     res.status(200).json({ success: true, data: payments });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

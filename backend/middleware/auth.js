@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
+const SupabaseService = require('../services/supabaseService');
 
 const protect = async (req, res, next) => {
   let token;
@@ -17,7 +17,7 @@ const protect = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.admin = await Admin.findById(decoded.id);
+    req.admin = await SupabaseService.getAdminById(decoded.id);
     
     if (!req.admin) {
       return res.status(401).json({ 

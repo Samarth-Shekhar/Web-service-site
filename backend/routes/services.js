@@ -1,5 +1,5 @@
 const express = require('express');
-const Service = require('../models/Service');
+const SupabaseService = require('../services/supabaseService');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -10,10 +10,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const category = req.query.category;
-    let query = { isActive: true };
-    if (category) query.category = category;
-
-    const services = await Service.find(query).sort({ category: 1, order: 1 });
+    const services = await SupabaseService.getServices(category);
 
     res.status(200).json({
       success: true,
@@ -33,7 +30,7 @@ router.get('/', async (req, res) => {
 // @access  Public
 router.get('/:slug', async (req, res) => {
   try {
-    const service = await Service.findOne({ slug: req.params.slug, isActive: true });
+    const service = await SupabaseService.getServiceBySlug(req.params.slug);
 
     if (!service) {
       return res.status(404).json({
@@ -57,10 +54,10 @@ router.get('/:slug', async (req, res) => {
 // @access  Private
 router.post('/', protect, async (req, res) => {
   try {
-    const service = await Service.create(req.body);
+    const service = await SupabaseService.createService(req.body);
     res.status(201).json({ success: true, data: service });
   } catch (err) {
-    if (err.code === 11000) {
+    if (err.code === '23505') { // Supabase unique constraint error code
       return res.status(400).json({
         success: false,
         message: 'Service with this slug already exists'
@@ -79,10 +76,7 @@ router.post('/', protect, async (req, res) => {
 // @access  Private
 router.put('/:id', protect, async (req, res) => {
   try {
-    const service = await Service.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
+    const service = await SupabaseService.updateService(req.params.id, req.body);
 
     if (!service) {
       return res.status(404).json({
@@ -106,15 +100,7 @@ router.put('/:id', protect, async (req, res) => {
 // @access  Private
 router.delete('/:id', protect, async (req, res) => {
   try {
-    const service = await Service.findByIdAndDelete(req.params.id);
-
-    if (!service) {
-      return res.status(404).json({
-        success: false,
-        message: 'Service not found'
-      });
-    }
-
+    await SupabaseService.deleteService(req.params.id);
     res.status(200).json({ success: true, message: 'Service deleted' });
   } catch (err) {
     res.status(500).json({

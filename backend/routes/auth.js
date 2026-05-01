@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
+const bcrypt = require('bcryptjs');
+const SupabaseService = require('../services/supabaseService');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -26,7 +27,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    const admin = await Admin.findOne({ email }).select('+password');
+    const admin = await SupabaseService.getAdminByEmail(email);
 
     if (!admin) {
       return res.status(401).json({
@@ -35,7 +36,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    const isMatch = await admin.comparePassword(password);
+    const isMatch = await bcrypt.compare(password, admin.password);
 
     if (!isMatch) {
       return res.status(401).json({
@@ -44,13 +45,13 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    const token = generateToken(admin._id);
+    const token = generateToken(admin.id);
 
     res.status(200).json({
       success: true,
       token,
       admin: {
-        id: admin._id,
+        id: admin.id,
         email: admin.email,
         name: admin.name,
         role: admin.role
@@ -69,10 +70,12 @@ router.post('/login', async (req, res) => {
 // @desc    Get current admin
 // @access  Private
 router.get('/me', protect, async (req, res) => {
+  // req.admin is set by the protect middleware
+  // We need to ensure the protect middleware is also updated or compatible
   res.status(200).json({
     success: true,
     admin: {
-      id: req.admin._id,
+      id: req.admin.id,
       email: req.admin.email,
       name: req.admin.name,
       role: req.admin.role

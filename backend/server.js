@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
@@ -69,23 +68,32 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connect to MongoDB and start server
+// Server startup
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nexusdigital')
-  .then(() => {
-    console.log('✅ MongoDB connected successfully');
+const startServer = async () => {
+  try {
+    // Check Supabase connectivity (optional but recommended)
+    const supabase = require('./config/supabase');
+    const { error } = await supabase.from('services').select('id', { count: 'exact', head: true }).limit(1);
+    
+    if (error) {
+      console.warn('⚠️ Supabase connection warning:', error.message);
+      console.warn('Make sure you have created the tables in Supabase and updated your .env file.');
+    } else {
+      console.log('✅ Supabase connection verified');
+    }
+
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📡 API: http://localhost:${PORT}/api`);
     });
-  })
-  .catch((err) => {
-    console.error('❌ MongoDB connection failed:', err.message);
-    // Start server anyway for development without DB
-    app.listen(PORT, () => {
-      console.log(`⚠️ Server running on port ${PORT} (without database)`);
-    });
-  });
+  } catch (err) {
+    console.error('❌ Server failed to start:', err.message);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 module.exports = app;
