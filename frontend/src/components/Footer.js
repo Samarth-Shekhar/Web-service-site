@@ -33,16 +33,17 @@ export default function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
               {/* Muscular arm SVG logo */}
-              <svg viewBox="0 0 40 40" fill="none" width="28" height="28" className={styles.footerLogoSvg}>
+              <svg viewBox="0 0 64 64" fill="none" width="28" height="28" className={styles.footerLogoSvg}>
                 <defs>
-                  <linearGradient id="footerArmGrad" x1="0" y1="0" x2="40" y2="40">
+                  <linearGradient id="footerArmGrad" x1="0" y1="0" x2="64" y2="64">
                     <stop offset="0%" stopColor="#00F5D4" />
-                    <stop offset="100%" stopColor="#7B61FF" />
+                    <stop offset="60%" stopColor="#7B61FF" />
+                    <stop offset="100%" stopColor="#6C4FE0" />
                   </linearGradient>
                 </defs>
-                <path d="M28,36 L18,36 C16,36 14,34 13,32 L10,26 C9,24 9,22 10,20 L12,16 C12.5,15 13,14.5 13,13 L13,11 C13,9.5 14,8 15.5,8 L17,8 C18,8 19,9 19,10 L19,14 C19,15 19.5,15.5 20,16 L22,17 C24,17.5 26,16 27,14 L28,12 C28.5,11 29.5,10.5 30.5,11 C31.5,11.5 32,12.5 31.5,13.5 L29,18 C28,20 28,22 30,23 L33,24 C35,25 36,27 35,29 L34,32 C33,34 31,36 28,36 Z" fill="url(#footerArmGrad)" />
-                <path d="M27,14 C28.5,17 27,20 24,21 C22,21.5 20,20 19.5,18 C21,18 24,17 27,14 Z" fill="rgba(255,255,255,0.2)" />
-                <text x="23" y="23" fill="rgba(255,255,255,0.85)" fontSize="6" fontWeight="800" fontFamily="monospace" textAnchor="middle" letterSpacing="-0.5">&lt;/&gt;</text>
+                <path d="M12,52 C12,52 8,44 10,38 C12,32 16,28 18,26 C20,24 22,20 24,16 C26,12 28,8 32,6 C34,5 36,6 36,8 C36,10 34,14 32,16 C30,18 30,20 32,20 C34,20 38,18 42,16 C44,15 46,14 48,16 C50,18 48,22 44,24 C40,26 36,28 36,32 C36,36 40,38 44,40 C48,42 52,46 50,50 C48,54 42,56 36,56 C30,56 24,56 18,54 C14,52 12,52 12,52 Z" fill="url(#footerArmGrad)" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" />
+                <path d="M32,16 C28,20 26,26 28,30 C30,28 34,24 38,20 C36,18 34,18 32,20" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
+                <text x="36" y="44" fill="rgba(255,255,255,0.9)" fontSize="8" fontWeight="800" fontFamily="monospace" textAnchor="middle" letterSpacing="-0.5">&lt;/&gt;</text>
               </svg>
               <span className={styles.brandName}>
                 <span>Vorc</span>
@@ -96,16 +97,18 @@ export default function Footer() {
 
           {/* Giant animated logo */}
           <div className={styles.bigLogo}>
-            <svg viewBox="0 0 40 40" fill="none" className={styles.bigLogoSvg}>
+            <svg viewBox="0 0 64 64" fill="none" className={styles.bigLogoSvg}>
               <defs>
-                <linearGradient id="bigArmGrad" x1="0" y1="0" x2="40" y2="40">
+                <linearGradient id="bigArmGrad" x1="0" y1="0" x2="64" y2="64">
                   <stop offset="0%" stopColor="#00F5D4" />
-                  <stop offset="100%" stopColor="#7B61FF" />
+                  <stop offset="60%" stopColor="#7B61FF" />
+                  <stop offset="100%" stopColor="#6C4FE0" />
                 </linearGradient>
               </defs>
-              <path className={styles.bigArm} d="M28,36 L18,36 C16,36 14,34 13,32 L10,26 C9,24 9,22 10,20 L12,16 C12.5,15 13,14.5 13,13 L13,11 C13,9.5 14,8 15.5,8 L17,8 C18,8 19,9 19,10 L19,14 C19,15 19.5,15.5 20,16 L22,17 C24,17.5 26,16 27,14 L28,12 C28.5,11 29.5,10.5 30.5,11 C31.5,11.5 32,12.5 31.5,13.5 L29,18 C28,20 28,22 30,23 L33,24 C35,25 36,27 35,29 L34,32 C33,34 31,36 28,36 Z" fill="url(#bigArmGrad)" />
-              <path d="M27,14 C28.5,17 27,20 24,21 C22,21.5 20,20 19.5,18 C21,18 24,17 27,14 Z" fill="rgba(255,255,255,0.2)" />
-              <text x="23" y="23" fill="rgba(255,255,255,0.85)" fontSize="6" fontWeight="800" fontFamily="monospace" textAnchor="middle" letterSpacing="-0.5">&lt;/&gt;</text>
+              <path className={styles.bigArm} d="M12,52 C12,52 8,44 10,38 C12,32 16,28 18,26 C20,24 22,20 24,16 C26,12 28,8 32,6 C34,5 36,6 36,8 C36,10 34,14 32,16 C30,18 30,20 32,20 C34,20 38,18 42,16 C44,15 46,14 48,16 C50,18 48,22 44,24 C40,26 36,28 36,32 C36,36 40,38 44,40 C48,42 52,46 50,50 C48,54 42,56 36,56 C30,56 24,56 18,54 C14,52 12,52 12,52 Z" fill="url(#bigArmGrad)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+              <path d="M32,16 C28,20 26,26 28,30 C30,28 34,24 38,20 C36,18 34,18 32,20" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M28,12 C30,10 34,8 34,12 C34,16 30,18 28,16 Z" fill="rgba(255,255,255,0.12)" />
+              <text x="36" y="44" fill="rgba(255,255,255,0.9)" fontSize="8" fontWeight="800" fontFamily="monospace" textAnchor="middle" letterSpacing="-0.5">&lt;/&gt;</text>
             </svg>
           </div>
 
