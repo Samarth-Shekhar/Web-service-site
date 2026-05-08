@@ -1,7 +1,7 @@
 import AdminPanel from './AdminPanel';
 
 export const metadata = {
-  title: 'Admin Panel — Vorcit',
+  title: 'Admin Panel — VorcIT',
   robots: 'noindex, nofollow',
 };
 

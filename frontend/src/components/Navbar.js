@@ -43,20 +43,31 @@ export default function Navbar() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoIcon}>
-            <svg viewBox="0 0 32 32" fill="none" width="24" height="24" className={styles.logoSvg}>
+            {/* Muscular arm flexing with code brackets */}
+            <svg viewBox="0 0 48 48" fill="none" width="32" height="32" className={styles.logoSvg}>
               <defs>
-                <linearGradient id="vorcitGrad" x1="0" y1="0" x2="32" y2="32">
+                <linearGradient id="armGrad" x1="0" y1="0" x2="48" y2="48">
                   <stop offset="0%" stopColor="#00F5D4" />
                   <stop offset="50%" stopColor="#7B61FF" />
                   <stop offset="100%" stopColor="#FF6B9D" />
                 </linearGradient>
+                <linearGradient id="codeGrad" x1="0" y1="0" x2="48" y2="48">
+                  <stop offset="0%" stopColor="#00F5D4" />
+                  <stop offset="100%" stopColor="#7B61FF" />
+                </linearGradient>
               </defs>
-              <polygon points="16,2 28,10 28,22 16,30 4,22 4,10" fill="url(#vorcitGrad)" className={styles.logoHex} />
-              <polygon points="16,8 22,12 22,20 16,24 10,20 10,12" fill="white" fillOpacity="0.9" className={styles.logoInner} />
-              <circle cx="16" cy="16" r="3" fill="url(#vorcitGrad)" className={styles.logoCore} />
+              {/* Flexing bicep arm */}
+              <path className={styles.armPath} d="M8 38 C8 38 6 30 10 26 C14 22 16 18 20 16 C22 15 24 12 22 8 C20 5 24 3 27 6 C30 9 30 14 28 18 C26 22 30 22 34 20 C38 18 40 22 38 26 C36 30 30 32 26 34 C22 36 18 38 14 38 Z" fill="url(#armGrad)" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
+              {/* Muscle bulge highlight */}
+              <path className={styles.musclePulse} d="M18 14 C20 12 24 10 26 8 C28 12 26 16 22 18 C20 19 18 16 18 14Z" fill="rgba(255,255,255,0.25)" />
+              {/* Code brackets </> */}
+              <text className={styles.codeBrackets} x="20" y="30" fill="white" fontSize="10" fontWeight="900" fontFamily="monospace" textAnchor="middle">&lt;/&gt;</text>
             </svg>
           </span>
-          <span className={styles.logoText}>Vor<span className={styles.logoAccent}>cit</span></span>
+          <span className={styles.logoText}>
+            <span className={styles.logoVorc}>Vorc</span>
+            <span className={styles.logoIT}>IT</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}

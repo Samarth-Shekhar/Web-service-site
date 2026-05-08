@@ -6,11 +6,11 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const syne = Syne({ subsets: ['latin'], variable: '--font-heading' });
 
 export const metadata = {
-  title: 'Vorcit — We Build Digital Experiences That Scale',
-  description: 'Vorcit is a premium digital services agency specializing in web development, AI solutions, UI/UX design, and performance marketing.',
+  title: 'VorcIT — Code Strong. Build Stronger.',
+  description: 'VorcIT is a premium digital services agency specializing in web development, AI solutions, UI/UX design, and performance marketing.',
   keywords: 'web development, app development, AI chatbots, UI/UX design, SEO, digital marketing',
   openGraph: {
-    title: 'Vorcit — We Build Digital Experiences That Scale',
+    title: 'VorcIT — Code Strong. Build Stronger.',
     description: 'Premium digital services agency for web, AI, design & marketing.',
     type: 'website',
   },

@@ -36,71 +36,121 @@
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.5px;
+  text-decoration: none;
 }
 
 .logoIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, rgba(0,245,212,0.15), rgba(123,97,255,0.15));
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, rgba(0,245,212,0.1), rgba(123,97,255,0.15), rgba(255,107,157,0.1));
+  border-radius: 12px;
   border: 1px solid rgba(123,97,255,0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.logoIcon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,245,212,0.2), rgba(123,97,255,0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
 }
 
 .logo:hover .logoIcon {
   border-color: rgba(0,245,212,0.6);
-  box-shadow: 0 0 16px rgba(123,97,255,0.4);
+  box-shadow: 0 0 20px rgba(123,97,255,0.5), 0 0 40px rgba(0,245,212,0.2);
+  transform: scale(1.05);
+}
+
+.logo:hover .logoIcon::before {
+  opacity: 1;
 }
 
 .logoSvg {
   display: block;
+  position: relative;
+  z-index: 1;
 }
 
-.logoHex {
+/* Flexing arm animation */
+.armPath {
   transform-origin: center;
-  animation: hexSpin 8s linear infinite;
+  animation: armFlex 3s ease-in-out infinite;
 }
 
-.logoInner {
-  transform-origin: center;
-  animation: innerPulse 3s ease-in-out infinite;
+@keyframes armFlex {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.03) rotate(-1deg); }
+  50% { transform: scale(1.06) rotate(0deg); }
+  75% { transform: scale(1.03) rotate(1deg); }
 }
 
-.logoCore {
-  transform-origin: center;
-  animation: coreGlow 2s ease-in-out infinite;
+/* Muscle highlight pulse */
+.musclePulse {
+  animation: muscleGlow 2s ease-in-out infinite;
 }
 
-@keyframes hexSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes muscleGlow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.55; }
 }
 
-@keyframes innerPulse {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.92); }
+/* Code brackets float */
+.codeBrackets {
+  animation: codeFloat 2.5s ease-in-out infinite;
 }
 
-@keyframes coreGlow {
-  0%, 100% { r: 3; opacity: 1; }
-  50% { r: 4; opacity: 0.7; }
+@keyframes codeFloat {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-2px); opacity: 0.8; }
 }
 
+/* Logo text */
 .logoText {
+  display: flex;
+  align-items: baseline;
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  animation: logoTextShimmer 4s ease-in-out infinite;
 }
 
-.logoAccent {
-  background: linear-gradient(135deg, #00F5D4, #7B61FF);
+@keyframes logoTextShimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
+}
+
+.logoVorc {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.logoIT {
+  font-weight: 900;
+  font-size: 1.45rem;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00F5D4, #7B61FF, #FF6B9D);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: itGradientMove 3s ease-in-out infinite;
+  text-transform: uppercase;
+  position: relative;
+}
+
+@keyframes itGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .desktopNav {

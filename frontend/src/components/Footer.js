@@ -32,17 +32,25 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
+              {/* Muscular arm SVG logo */}
+              <svg viewBox="0 0 48 48" fill="none" width="28" height="28" className={styles.footerLogoSvg}>
                 <defs>
-                  <linearGradient id="footerGrad" x1="0" y1="0" x2="32" y2="32"><stop stopColor="#00F5D4"/><stop offset="0.5" stopColor="#7B61FF"/><stop offset="1" stopColor="#FF6B9D"/></linearGradient>
+                  <linearGradient id="footerArmGrad" x1="0" y1="0" x2="48" y2="48">
+                    <stop offset="0%" stopColor="#00F5D4" />
+                    <stop offset="50%" stopColor="#7B61FF" />
+                    <stop offset="100%" stopColor="#FF6B9D" />
+                  </linearGradient>
                 </defs>
-                <polygon points="16,2 28,10 28,22 16,30 4,22 4,10" fill="url(#footerGrad)" />
-                <polygon points="16,8 22,12 22,20 16,24 10,20 10,12" fill="white" fillOpacity="0.9" />
-                <circle cx="16" cy="16" r="3" fill="url(#footerGrad)" />
+                <path d="M8 38 C8 38 6 30 10 26 C14 22 16 18 20 16 C22 15 24 12 22 8 C20 5 24 3 27 6 C30 9 30 14 28 18 C26 22 30 22 34 20 C38 18 40 22 38 26 C36 30 30 32 26 34 C22 36 18 38 14 38 Z" fill="url(#footerArmGrad)" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
+                <path d="M18 14 C20 12 24 10 26 8 C28 12 26 16 22 18 C20 19 18 16 18 14Z" fill="rgba(255,255,255,0.25)" />
+                <text x="20" y="30" fill="white" fontSize="10" fontWeight="900" fontFamily="monospace" textAnchor="middle">&lt;/&gt;</text>
               </svg>
-              <span>Vor<span className={styles.accent}>cit</span></span>
+              <span className={styles.brandName}>
+                <span>Vorc</span>
+                <span className={styles.accent}>IT</span>
+              </span>
             </Link>
-            <p className={styles.tagline}>We build digital experiences that scale. Premium web, AI, design & marketing solutions for modern businesses.</p>
+            <p className={styles.tagline}>Code Strong. Build Stronger. Premium web, AI, design & marketing solutions that flex your business forward.</p>
             <div className={styles.socials}>
               {['twitter', 'linkedin', 'instagram', 'github'].map((social) => (
                 <a key={social} href="#" className={styles.socialIcon} aria-label={social}>
@@ -78,8 +86,59 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* CRAZY ANIMATED BRAND SHOWCASE */}
+        <div className={styles.brandShowcase}>
+          {/* Animated background particles */}
+          <div className={styles.particles}>
+            {[...Array(12)].map((_, i) => (
+              <span key={i} className={styles.particle} style={{ '--i': i }} />
+            ))}
+          </div>
+
+          {/* Giant animated logo */}
+          <div className={styles.bigLogo}>
+            <svg viewBox="0 0 48 48" fill="none" className={styles.bigLogoSvg}>
+              <defs>
+                <linearGradient id="bigArmGrad" x1="0" y1="0" x2="48" y2="48">
+                  <stop offset="0%" stopColor="#00F5D4" />
+                  <stop offset="50%" stopColor="#7B61FF" />
+                  <stop offset="100%" stopColor="#FF6B9D" />
+                </linearGradient>
+              </defs>
+              <path className={styles.bigArm} d="M8 38 C8 38 6 30 10 26 C14 22 16 18 20 16 C22 15 24 12 22 8 C20 5 24 3 27 6 C30 9 30 14 28 18 C26 22 30 22 34 20 C38 18 40 22 38 26 C36 30 30 32 26 34 C22 36 18 38 14 38 Z" fill="url(#bigArmGrad)" />
+              <path d="M18 14 C20 12 24 10 26 8 C28 12 26 16 22 18 C20 19 18 16 18 14Z" fill="rgba(255,255,255,0.3)" />
+              <text x="20" y="30" fill="white" fontSize="10" fontWeight="900" fontFamily="monospace" textAnchor="middle">&lt;/&gt;</text>
+            </svg>
+          </div>
+
+          {/* Giant animated brand name */}
+          <div className={styles.bigBrandName}>
+            <span className={styles.bigVorc}>Vorc</span>
+            <span className={styles.bigIT}>IT</span>
+          </div>
+
+          {/* Catchy animated slogan */}
+          <div className={styles.sloganContainer}>
+            <p className={styles.slogan}>
+              <span className={styles.sloganWord} style={{ '--delay': '0s' }}>Code</span>
+              <span className={styles.sloganWord} style={{ '--delay': '0.15s' }}>Strong.</span>
+              <span className={styles.sloganWordAccent} style={{ '--delay': '0.3s' }}>Build</span>
+              <span className={styles.sloganWordAccent} style={{ '--delay': '0.45s' }}>Stronger.</span>
+            </p>
+          </div>
+
+          {/* Orbiting code symbols */}
+          <div className={styles.orbitRing}>
+            {['<', '/>', '{', '}', '()', '[]', '=>', '&&'].map((sym, i) => (
+              <span key={i} className={styles.orbitSymbol} style={{ '--orbit-i': i, '--orbit-total': 8 }}>
+                {sym}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className={styles.bottom}>
-          <p>© {new Date().getFullYear()} Vorcit. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} VorcIT. All rights reserved.</p>
           <div className={styles.bottomLinks}>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

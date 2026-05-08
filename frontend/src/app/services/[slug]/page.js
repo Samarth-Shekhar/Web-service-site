@@ -23,7 +23,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   // Static fallback for metadata during GitHub Pages export
   return { 
-    title: 'Service Detail — Vorcit',
+    title: 'Service Detail — VorcIT',
     description: 'Learn more about our premium digital services.'
   };
 }

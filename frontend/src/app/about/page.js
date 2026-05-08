@@ -4,8 +4,8 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import AboutContent from './AboutContent';
 
 export const metadata = {
-  title: 'About Us — Vorcit',
-  description: 'Learn about Vorcit — a premium digital services agency building scalable web, AI, and design solutions for modern businesses.',
+  title: 'About Us — VorcIT',
+  description: 'Learn about VorcIT — a premium digital services agency building scalable web, AI, and design solutions for modern businesses.',
 };
 
 export default function AboutPage() {

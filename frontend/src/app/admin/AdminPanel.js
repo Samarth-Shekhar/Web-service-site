@@ -157,7 +157,7 @@ export default function AdminPanel() {
     return (
       <div className={styles.loginPage}>
         <div className={styles.loginCard}>
-          <div className={styles.loginLogo}>Vorcit Admin</div>
+          <div className={styles.loginLogo}>VorcIT Admin</div>
           <form onSubmit={handleLogin}>
             <div className="form-group">
               <label className="form-label">Email</label>
