@@ -42,8 +42,21 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoIcon}>N</span>
-          NexusDigital
+          <span className={styles.logoIcon}>
+            <svg viewBox="0 0 32 32" fill="none" width="24" height="24" className={styles.logoSvg}>
+              <defs>
+                <linearGradient id="vorcitGrad" x1="0" y1="0" x2="32" y2="32">
+                  <stop offset="0%" stopColor="#00F5D4" />
+                  <stop offset="50%" stopColor="#7B61FF" />
+                  <stop offset="100%" stopColor="#FF6B9D" />
+                </linearGradient>
+              </defs>
+              <polygon points="16,2 28,10 28,22 16,30 4,22 4,10" fill="url(#vorcitGrad)" className={styles.logoHex} />
+              <polygon points="16,8 22,12 22,20 16,24 10,20 10,12" fill="white" fillOpacity="0.9" className={styles.logoInner} />
+              <circle cx="16" cy="16" r="3" fill="url(#vorcitGrad)" className={styles.logoCore} />
+            </svg>
+          </span>
+          <span className={styles.logoText}>Vor<span className={styles.logoAccent}>cit</span></span>
         </Link>
 
         {/* Desktop Nav */}

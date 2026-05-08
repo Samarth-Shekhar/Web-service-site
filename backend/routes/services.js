@@ -54,7 +54,13 @@ router.get('/:slug', async (req, res) => {
 // @access  Private
 router.post('/', protect, async (req, res) => {
   try {
-    const service = await SupabaseService.createService(req.body);
+    const service = await SupabaseService.createService({
+      ...req.body,
+      title: req.body.title || req.body.name,
+      name: req.body.name || req.body.title,
+      pricing_starting_at: req.body.pricing_starting_at || req.body.pricing,
+      pricing: req.body.pricing || req.body.pricing_starting_at
+    });
     res.status(201).json({ success: true, data: service });
   } catch (err) {
     if (err.code === '23505') { // Supabase unique constraint error code
@@ -76,7 +82,13 @@ router.post('/', protect, async (req, res) => {
 // @access  Private
 router.put('/:id', protect, async (req, res) => {
   try {
-    const service = await SupabaseService.updateService(req.params.id, req.body);
+    const service = await SupabaseService.updateService(req.params.id, {
+      ...req.body,
+      title: req.body.title || req.body.name,
+      name: req.body.name || req.body.title,
+      pricing_starting_at: req.body.pricing_starting_at || req.body.pricing,
+      pricing: req.body.pricing || req.body.pricing_starting_at
+    });
 
     if (!service) {
       return res.status(404).json({

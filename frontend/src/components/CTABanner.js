@@ -26,7 +26,7 @@ export default function CTABanner() {
                     <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </Link>
-                <a href="https://wa.me/919650754598?text=Hi%2C%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
+                <a href="https://wa.me/919650754598?text=Hi%2C%20I%E2%80%99m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
                   💬 WhatsApp Us
                 </a>
               </div>

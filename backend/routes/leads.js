@@ -50,7 +50,7 @@ const sendNotificationEmail = async (lead) => {
 // @access  Public
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, serviceRequested, serviceRequired, service, message } = req.body;
+    const { name, email, phone, serviceRequested, serviceRequired, service, company, message } = req.body;
 
     // Use whichever field name the frontend is sending
     const serviceName = serviceRequested || serviceRequired || service || 'General Inquiry';
@@ -60,6 +60,7 @@ router.post('/', async (req, res) => {
       email,
       phone,
       service_requested: serviceName,
+      company,
       message
     });
 

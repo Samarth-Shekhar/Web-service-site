@@ -33,15 +33,14 @@ export default function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
               <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
-                <rect width="32" height="32" rx="8" fill="url(#footerGrad)" />
-                <path d="M8 16L16 8L24 16L16 24L8 16Z" fill="white" fillOpacity="0.9" />
-                <path d="M12 16L16 12L20 16L16 20L12 16Z" fill="url(#footerGrad2)" />
                 <defs>
-                  <linearGradient id="footerGrad" x1="0" y1="0" x2="32" y2="32"><stop stopColor="#00F5D4"/><stop offset="1" stopColor="#7B61FF"/></linearGradient>
-                  <linearGradient id="footerGrad2" x1="12" y1="12" x2="20" y2="20"><stop stopColor="#00F5D4"/><stop offset="1" stopColor="#7B61FF"/></linearGradient>
+                  <linearGradient id="footerGrad" x1="0" y1="0" x2="32" y2="32"><stop stopColor="#00F5D4"/><stop offset="0.5" stopColor="#7B61FF"/><stop offset="1" stopColor="#FF6B9D"/></linearGradient>
                 </defs>
+                <polygon points="16,2 28,10 28,22 16,30 4,22 4,10" fill="url(#footerGrad)" />
+                <polygon points="16,8 22,12 22,20 16,24 10,20 10,12" fill="white" fillOpacity="0.9" />
+                <circle cx="16" cy="16" r="3" fill="url(#footerGrad)" />
               </svg>
-              <span>Nexus<span className={styles.accent}>Digital</span></span>
+              <span>Vor<span className={styles.accent}>cit</span></span>
             </Link>
             <p className={styles.tagline}>We build digital experiences that scale. Premium web, AI, design & marketing solutions for modern businesses.</p>
             <div className={styles.socials}>
@@ -80,7 +79,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p>© {new Date().getFullYear()} NexusDigital. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Vorcit. All rights reserved.</p>
           <div className={styles.bottomLinks}>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

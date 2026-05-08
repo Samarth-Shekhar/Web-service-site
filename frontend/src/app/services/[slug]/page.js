@@ -23,7 +23,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   // Static fallback for metadata during GitHub Pages export
   return { 
-    title: 'Service Detail — NexusDigital',
+    title: 'Service Detail — Vorcit',
     description: 'Learn more about our premium digital services.'
   };
 }

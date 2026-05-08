@@ -1,7 +1,7 @@
 import AdminPanel from './AdminPanel';
 
 export const metadata = {
-  title: 'Admin Panel — NexusDigital',
+  title: 'Admin Panel — Vorcit',
   robots: 'noindex, nofollow',
 };
 

@@ -15,7 +15,7 @@ export default function ClientLogos() {
             around the world
           </h2>
           <p className={styles.description}>
-            At NexusDigital, we believe that great design is born from strong partnerships.
+            At Vorcit, we believe that great design is born from strong partnerships.
             We&apos;ve helped startups and global companies alike to craft identities,
             web experiences, and AI-powered solutions that make an impact.
           </p>

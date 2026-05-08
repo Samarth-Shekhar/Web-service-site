@@ -4,7 +4,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import PortfolioContent from './PortfolioContent';
 
 export const metadata = {
-  title: 'Portfolio — NexusDigital',
+  title: 'Portfolio — Vorcit',
   description: 'Explore our portfolio of premium web, AI, and design projects. See how we\'ve helped businesses grow digitally.',
 };
 

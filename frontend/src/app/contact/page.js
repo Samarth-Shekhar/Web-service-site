@@ -4,8 +4,8 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import ContactContent from './ContactContent';
 
 export const metadata = {
-  title: 'Contact Us — NexusDigital',
-  description: 'Get in touch with NexusDigital. Let\'s discuss your project and build something amazing together.',
+  title: 'Contact Us — Vorcit',
+  description: 'Get in touch with Vorcit. Let\'s discuss your project and build something amazing together.',
 };
 
 export default function ContactPage() {

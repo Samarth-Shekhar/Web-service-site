@@ -82,7 +82,7 @@ export default function AboutContent() {
               We&apos;re building the future of <span className="text-gradient">digital experiences</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              NexusDigital is a premium digital agency helping startups and enterprises 
+              Vorcit is a premium digital agency helping startups and enterprises 
               build scalable, beautiful, and high-performance digital products.
             </p>
           </ScrollReveal>
@@ -137,7 +137,7 @@ export default function AboutContent() {
           <ScrollReveal>
             <div className={styles.sectionHeader}>
               <span className="section-label">Our Values</span>
-              <h2 className="section-title">Why choose <span className="text-gradient">NexusDigital</span></h2>
+              <h2 className="section-title">Why choose <span className="text-gradient">Vorcit</span></h2>
             </div>
           </ScrollReveal>
           <div className={styles.valuesGrid}>

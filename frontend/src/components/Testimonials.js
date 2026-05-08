@@ -1,38 +1,69 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ScrollReveal from './ScrollReveal';
 import styles from './Testimonials.module.css';
 
-const testimonials = [
+const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+const FALLBACK_TESTIMONIALS = [
   {
-    name: 'Arjun Mehta',
-    role: 'CEO, TechNova Solutions',
-    content: 'NexusDigital transformed our outdated platform into a modern, high-performance SaaS application. The team\'s expertise in React and Node.js was exceptional. Our user engagement increased by 180%.',
+    id: 'fallback-1',
+    client_name: 'Aarav Mehta',
+    company_name: 'Marksman Technologies',
+    role: 'Product Lead',
+    review: 'Excellent automation solutions and timely delivery. The team understood the business workflow and shipped a polished system.',
     rating: 5
   },
   {
-    name: 'Priya Sharma',
-    role: 'Founder, EduLearn Platform',
-    content: 'Working with NexusDigital was a game-changer. They built our AI-powered chatbot that handles 70% of customer queries autonomously. Professional, timely, and incredibly skilled.',
+    id: 'fallback-2',
+    client_name: 'Priya Sharma',
+    company_name: 'Essentia.dev',
+    role: 'Engineering Manager',
+    review: 'Professional dashboard development with scalable architecture. The frontend quality and backend structure were both strong.',
     rating: 5
   },
   {
-    name: 'Rahul Verma',
-    role: 'CTO, CloudSync Inc.',
-    content: 'The UI/UX design NexusDigital delivered was beyond our expectations. Clean, modern, and conversion-focused. Our landing page conversion rate jumped from 2% to 8.5%.',
-    rating: 5
-  },
-  {
-    name: 'Sneha Patel',
-    role: 'Marketing Head, DataPulse',
-    content: 'Their SEO and performance marketing strategies doubled our organic traffic in just 4 months. The team is responsive, data-driven, and genuinely cares about results.',
+    id: 'fallback-3',
+    client_name: 'Ricky',
+    company_name: 'PepeLeads',
+    role: 'Technical Manager',
+    review: 'Strong frontend and backend expertise. Our lead automation workflow became faster, cleaner, and easier to manage.',
     rating: 5
   }
 ];
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState([]);
   const [active, setActive] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      const res = await fetch(`${API}/testimonials?featured=true`);
+      const data = await res.json();
+      if (data.success && data.data.length > 0) {
+        setTestimonials(data.data);
+      } else {
+        setTestimonials(FALLBACK_TESTIMONIALS);
+      }
+    } catch (err) {
+      console.error('Error fetching testimonials:', err);
+      setTestimonials(FALLBACK_TESTIMONIALS);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading || testimonials.length === 0) {
+    return null;
+  }
+
+  const currentTestimonial = testimonials[active];
 
   return (
     <section className={styles.section}>
@@ -48,20 +79,26 @@ export default function Testimonials() {
           <div className={styles.carousel}>
             <div className={styles.testimonial}>
               <div className={styles.stars}>
-                {Array.from({ length: testimonials[active].rating }, (_, i) => (
+                {Array.from({ length: currentTestimonial.rating }, (_, i) => (
                   <span key={i} className={styles.star}>★</span>
                 ))}
               </div>
               <blockquote className={styles.quote}>
-                &ldquo;{testimonials[active].content}&rdquo;
+                &ldquo;{currentTestimonial.review}&rdquo;
               </blockquote>
               <div className={styles.author}>
-                <div className={styles.avatar}>
-                  {testimonials[active].name.charAt(0)}
-                </div>
+                {currentTestimonial.company_logo_url && (
+                  <div className={styles.companyLogo}>
+                    <img 
+                      src={currentTestimonial.company_logo_url} 
+                      alt={currentTestimonial.company_name}
+                    />
+                  </div>
+                )}
                 <div>
-                  <div className={styles.authorName}>{testimonials[active].name}</div>
-                  <div className={styles.authorRole}>{testimonials[active].role}</div>
+                  <div className={styles.authorName}>{currentTestimonial.client_name}</div>
+                  <div className={styles.authorRole}>{currentTestimonial.role}</div>
+                  <div className={styles.authorCompany}>{currentTestimonial.company_name}</div>
                 </div>
               </div>
             </div>
