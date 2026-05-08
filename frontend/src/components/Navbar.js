@@ -44,24 +44,19 @@ export default function Navbar() {
         <Link href="/" className={styles.logo}>
           <span className={styles.logoIcon}>
             {/* Muscular arm flexing with code brackets */}
-            <svg viewBox="0 0 48 48" fill="none" width="32" height="32" className={styles.logoSvg}>
+            <svg viewBox="0 0 40 40" fill="none" width="30" height="30" className={styles.logoSvg}>
               <defs>
-                <linearGradient id="armGrad" x1="0" y1="0" x2="48" y2="48">
-                  <stop offset="0%" stopColor="#00F5D4" />
-                  <stop offset="50%" stopColor="#7B61FF" />
-                  <stop offset="100%" stopColor="#FF6B9D" />
-                </linearGradient>
-                <linearGradient id="codeGrad" x1="0" y1="0" x2="48" y2="48">
+                <linearGradient id="armGrad" x1="0" y1="0" x2="40" y2="40">
                   <stop offset="0%" stopColor="#00F5D4" />
                   <stop offset="100%" stopColor="#7B61FF" />
                 </linearGradient>
               </defs>
-              {/* Flexing bicep arm */}
-              <path className={styles.armPath} d="M8 38 C8 38 6 30 10 26 C14 22 16 18 20 16 C22 15 24 12 22 8 C20 5 24 3 27 6 C30 9 30 14 28 18 C26 22 30 22 34 20 C38 18 40 22 38 26 C36 30 30 32 26 34 C22 36 18 38 14 38 Z" fill="url(#armGrad)" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
-              {/* Muscle bulge highlight */}
-              <path className={styles.musclePulse} d="M18 14 C20 12 24 10 26 8 C28 12 26 16 22 18 C20 19 18 16 18 14Z" fill="rgba(255,255,255,0.25)" />
-              {/* Code brackets </> */}
-              <text className={styles.codeBrackets} x="20" y="30" fill="white" fontSize="10" fontWeight="900" fontFamily="monospace" textAnchor="middle">&lt;/&gt;</text>
+              {/* Clean flexing bicep arm */}
+              <path className={styles.armPath} d="M28,36 L18,36 C16,36 14,34 13,32 L10,26 C9,24 9,22 10,20 L12,16 C12.5,15 13,14.5 13,13 L13,11 C13,9.5 14,8 15.5,8 L17,8 C18,8 19,9 19,10 L19,14 C19,15 19.5,15.5 20,16 L22,17 C24,17.5 26,16 27,14 L28,12 C28.5,11 29.5,10.5 30.5,11 C31.5,11.5 32,12.5 31.5,13.5 L29,18 C28,20 28,22 30,23 L33,24 C35,25 36,27 35,29 L34,32 C33,34 31,36 28,36 Z" fill="url(#armGrad)" />
+              {/* Bicep muscle highlight */}
+              <path className={styles.musclePulse} d="M27,14 C28.5,17 27,20 24,21 C22,21.5 20,20 19.5,18 C21,18 24,17 27,14 Z" fill="rgba(255,255,255,0.2)" />
+              {/* Code tattoo on the bicep */}
+              <text className={styles.codeBrackets} x="23" y="23" fill="rgba(255,255,255,0.85)" fontSize="6" fontWeight="800" fontFamily="monospace" textAnchor="middle" letterSpacing="-0.5">&lt;/&gt;</text>
             </svg>
           </span>
           <span className={styles.logoText}>
