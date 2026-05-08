@@ -73,43 +73,19 @@
   opacity: 1;
 }
 
-.logoSvg {
+.logoImg {
   display: block;
   position: relative;
   z-index: 1;
+  animation: bicepFlex 3s ease-in-out infinite;
+  object-fit: contain;
 }
 
-/* Flexing arm animation */
-.armPath {
-  transform-origin: center;
-  animation: armFlex 3s ease-in-out infinite;
-}
-
-@keyframes armFlex {
+@keyframes bicepFlex {
   0%, 100% { transform: scale(1) rotate(0deg); }
-  25% { transform: scale(1.03) rotate(-1deg); }
-  50% { transform: scale(1.06) rotate(0deg); }
-  75% { transform: scale(1.03) rotate(1deg); }
-}
-
-/* Muscle highlight pulse */
-.musclePulse {
-  animation: muscleGlow 2s ease-in-out infinite;
-}
-
-@keyframes muscleGlow {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.55; }
-}
-
-/* Code brackets float */
-.codeBrackets {
-  animation: codeFloat 2.5s ease-in-out infinite;
-}
-
-@keyframes codeFloat {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(-2px); opacity: 0.8; }
+  30% { transform: scale(1.06) rotate(-2deg); }
+  60% { transform: scale(1.1) rotate(0deg); }
+  80% { transform: scale(1.04) rotate(1deg); }
 }
 
 /* Logo text */
