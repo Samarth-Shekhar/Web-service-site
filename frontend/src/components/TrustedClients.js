@@ -1,136 +1,73 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import styles from './TrustedClients.module.css';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-
-const FALLBACK_COMPANIES = [
-  'Marksman Technologies',
-  'Airports Authority of India',
-  'Essentia.dev',
-  'Celebal Technologies',
-  'ZenSolarCiti',
-  'Chaupal Foundation',
-  'PepeLeads'
-].map((name, index) => ({
-  id: `fallback-${index}`,
-  name,
-  logo_url: '',
-  website: '#'
-}));
-
-const initials = (name) => name.split(/\s|\./).filter(Boolean).slice(0, 2).map(word => word[0]).join('').toUpperCase();
-
 export default function TrustedClients() {
-  const [companies, setCompanies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    fetchCompanies();
-  }, []);
-
-  const fetchCompanies = async () => {
-    try {
-      const res = await fetch(`${API}/companies`);
-      const data = await res.json();
-      if (data.success) {
-        setCompanies(data.data?.length ? data.data : FALLBACK_COMPANIES);
-      }
-    } catch (err) {
-      console.error('Error fetching companies:', err);
-      setCompanies(FALLBACK_COMPANIES);
-      setError('');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <section className={styles.section}>
-        <div className="container">
-          <div className={styles.loading}>Loading companies...</div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className={styles.section}>
       <div className="container">
         <ScrollReveal>
           <div className={styles.header}>
-            <span className="section-label">Partnerships</span>
-            <h2 className="section-title">
-              Trusted by <span className="text-gradient">leading companies</span>
+            <h2 className={styles.title}>
+              A global consulting partner<br />
+              dedicated to building <span className={styles.blueDot}></span> smarter<br />
+              and <span className={styles.limeDot}></span> more adaptive
             </h2>
-            <p className="section-subtitle">
-              We partner with innovative organizations and global brands to deliver exceptional solutions.
-            </p>
           </div>
         </ScrollReveal>
 
-        {/* Infinite Marquee */}
-        <ScrollReveal delay={150}>
-          <div className={styles.marqueeContainer}>
-            <div className={styles.marquee}>
-              {companies.length > 0 && companies.map((company, i) => (
-                <div key={`${company.id}-1`} className={styles.marqueeItem}>
-                  <div className={styles.companyCard}>
-                    <div className={styles.logoWrapper}>
-                      {company.logo_url ? (
-                        <img src={company.logo_url} alt={company.name} className={styles.logo} />
-                      ) : (
-                        <span className={styles.logoInitials}>{initials(company.name)}</span>
-                      )}
-                    </div>
-                    <p className={styles.companyName}>{company.name}</p>
-                  </div>
-                </div>
-              ))}
-              {/* Duplicate for infinite scroll */}
-              {companies.length > 0 && companies.map((company, i) => (
-                <div key={`${company.id}-2`} className={styles.marqueeItem}>
-                  <div className={styles.companyCard}>
-                    <div className={styles.logoWrapper}>
-                      {company.logo_url ? (
-                        <img src={company.logo_url} alt={company.name} className={styles.logo} />
-                      ) : (
-                        <span className={styles.logoInitials}>{initials(company.name)}</span>
-                      )}
-                    </div>
-                    <p className={styles.companyName}>{company.name}</p>
-                  </div>
-                </div>
-              ))}
+        <div className={styles.grid}>
+          {/* Card 1 */}
+          <ScrollReveal delay={100} className={styles.cardWrapper}>
+            <div className={styles.blueCard}>
+              <div className={styles.blueCardHeader}>
+                <span className={styles.ipsumLogo}>IPSUM</span>
+                <span className={styles.barIcon}>
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10h3v4H2zm5-6h3v10H7zm5 3h3v7h-3z"/></svg>
+                </span>
+              </div>
+              <div className={styles.blueCardImage}>
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Person" />
+              </div>
+              <div className={styles.blueCardContent}>
+                <h2>120+</h2>
+                <p>Collaborating with leading AI and cloud technology providers.</p>
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
 
-        {/* Stats Grid */}
-        <ScrollReveal delay={300}>
-          <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>50+</div>
-              <div className={styles.statLabel}>Enterprise Clients</div>
+          {/* Card 2 */}
+          <ScrollReveal delay={200} className={styles.cardWrapper}>
+            <div className={styles.whiteCard}>
+              <p className={styles.smallLabel}>Commitment to measurable</p>
+              <h2>100%</h2>
+              
+              <div className={styles.avatars}>
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
+              </div>
+              
+              <p className={styles.quote}>"Their automation strategy completely reshaped how we work. It's efficient, intelligent, and seamless."</p>
             </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>150+</div>
-              <div className={styles.statLabel}>Projects Delivered</div>
+          </ScrollReveal>
+
+          {/* Card 3 (Split column) */}
+          <ScrollReveal delay={300} className={styles.cardWrapper}>
+            <div className={styles.splitCol}>
+              <div className={styles.limeCard}>
+                <p className={styles.smallLabel}>Data Points</p>
+                <h2>520k+</h2>
+                <p className={styles.limeDesc}>Analyzed monthly to power smarter business strategies.</p>
+              </div>
+              <div className={styles.blackCard}>
+                <p>Continents</p>
+              </div>
             </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>12</div>
-              <div className={styles.statLabel}>Countries Served</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>4.9★</div>
-              <div className={styles.statLabel}>Average Rating</div>
-            </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
