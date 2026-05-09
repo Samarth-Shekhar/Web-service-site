@@ -23,22 +23,10 @@ export default function ServiceSelector() {
   const dropdownRef = useRef(null);
   const router = useRouter();
 
-  useEffect(() => {
     const fetchServices = async () => {
-      try {
-        const res = await fetch('http://localhost:5000/api/services');
-        const data = await res.json();
-        if (data.success && data.data && data.data.length > 0) {
-          setServices(data.data);
-        } else {
-          setServices(FALLBACK_SERVICES);
-        }
-      } catch (err) {
-        console.error('Failed to fetch services, using fallback:', err);
-        setServices(FALLBACK_SERVICES);
-      } finally {
-        setLoading(false);
-      }
+      // Bypass fetch to prevent connection refused errors on static GitHub Pages
+      setServices(FALLBACK_SERVICES);
+      setLoading(false);
     };
     fetchServices();
   }, []);

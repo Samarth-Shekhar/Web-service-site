@@ -43,20 +43,9 @@ export default function Testimonials() {
   }, []);
 
   const fetchTestimonials = async () => {
-    try {
-      const res = await fetch(`${API}/testimonials?featured=true`);
-      const data = await res.json();
-      if (data.success && data.data.length > 0) {
-        setTestimonials(data.data);
-      } else {
-        setTestimonials(FALLBACK_TESTIMONIALS);
-      }
-    } catch (err) {
-      console.error('Error fetching testimonials:', err);
-      setTestimonials(FALLBACK_TESTIMONIALS);
-    } finally {
-      setLoading(false);
-    }
+    // Bypass fetch to prevent connection refused errors on static GitHub Pages
+    setTestimonials(FALLBACK_TESTIMONIALS);
+    setLoading(false);
   };
 
   if (loading || testimonials.length === 0) {

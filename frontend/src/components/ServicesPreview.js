@@ -60,22 +60,10 @@ export default function ServicesPreview() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
     const fetchServices = async () => {
-      try {
-        const res = await fetch('http://localhost:5000/api/services');
-        const data = await res.json();
-        if (data.success && data.data && data.data.length > 0) {
-          setServices(data.data.slice(0, 6));
-        } else {
-          setServices(FALLBACK_SERVICES);
-        }
-      } catch (err) {
-        console.error('Error fetching services, using fallback:', err);
-        setServices(FALLBACK_SERVICES);
-      } finally {
-        setLoading(false);
-      }
+      // Bypass fetch to prevent connection refused errors on static GitHub Pages
+      setServices(FALLBACK_SERVICES);
+      setLoading(false);
     };
     fetchServices();
   }, []);

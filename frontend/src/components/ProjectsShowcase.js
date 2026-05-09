@@ -114,20 +114,10 @@ export default function ProjectsShowcase({ limit = 6, showViewAll = true }) {
   }, [activeCategory, searchTerm, projects]);
 
   const fetchProjects = async () => {
-    try {
-      const res = await fetch(`${API}/portfolio`);
-      const data = await res.json();
-      if (data.success) {
-        setProjects(data.data?.length ? data.data : FALLBACK_PROJECTS);
-        setError('');
-      }
-    } catch (err) {
-      console.error('Error fetching projects:', err);
-      setProjects(FALLBACK_PROJECTS);
-      setError('');
-    } finally {
-      setLoading(false);
-    }
+    // Bypass fetch to prevent connection refused errors on static GitHub Pages
+    setProjects(FALLBACK_PROJECTS);
+    setError('');
+    setLoading(false);
   };
 
   const filterProjects = () => {
