@@ -23,6 +23,7 @@ export default function ServiceSelector() {
   const dropdownRef = useRef(null);
   const router = useRouter();
 
+  useEffect(() => {
     const fetchServices = async () => {
       // Bypass fetch to prevent connection refused errors on static GitHub Pages
       setServices(FALLBACK_SERVICES);

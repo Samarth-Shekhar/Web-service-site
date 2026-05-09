@@ -60,6 +60,7 @@ export default function ServicesPreview() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
     const fetchServices = async () => {
       // Bypass fetch to prevent connection refused errors on static GitHub Pages
       setServices(FALLBACK_SERVICES);
