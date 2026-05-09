@@ -50,7 +50,7 @@ export default function TrustedClients() {
                 <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
               </div>
               
-              <p className={styles.quote}>"Their automation strategy completely reshaped how we work. It's efficient, intelligent, and seamless."</p>
+              <p className={styles.quote}>&quot;Their automation strategy completely reshaped how we work. It&apos;s efficient, intelligent, and seamless.&quot;</p>
             </div>
           </ScrollReveal>
 

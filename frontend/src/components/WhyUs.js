@@ -48,7 +48,7 @@ export default function WhyUs() {
               intelligent innovation
             </h2>
             <p className={styles.subtitle}>
-              Whether you're optimizing today or building for tomorrow we help you<br />
+              Whether you&apos;re optimizing today or building for tomorrow we help you<br />
               move faster with confidence.
             </p>
             <Link href="/contact" className={styles.btnBlack}>
