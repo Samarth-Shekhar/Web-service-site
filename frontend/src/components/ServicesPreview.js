@@ -125,7 +125,7 @@ export default function ServicesPreview() {
           {services.map((svc, i) => (
             <ScrollReveal key={svc._id || i} delay={i * 100}>
               <div className={styles.card}>
-                <Link href={`/services/${svc.slug}`} className={styles.cardHeaderLink}>
+                <div className={styles.cardHeaderLink}>
                   <div className={styles.cardImage}>
                     <img 
                       src={getImageForIndex(i)} 
@@ -135,11 +135,11 @@ export default function ServicesPreview() {
                     />
                     <div className={styles.categoryBadge}>{svc.category}</div>
                   </div>
-                </Link>
+                </div>
                 <div className={styles.cardBody}>
-                  <Link href={`/services/${svc.slug}`} className={styles.titleLink}>
+                  <div className={styles.titleLink}>
                     <h3 className={styles.cardTitle}>{svc.title}</h3>
-                  </Link>
+                  </div>
                   <p className={styles.description}>{svc.shortDescription}</p>
                   
                   {svc.features && svc.features.length > 0 && (

@@ -1,6 +1,6 @@
 .servicesSection {
   background-color: var(--bg-color);
-  padding: 100px 0;
+  padding: 120px 0;
   position: relative;
 }
 
@@ -8,9 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 48px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 56px;
 }
 
 .grid {
@@ -23,7 +21,7 @@
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   transition: all var(--transition-base);
   height: 100%;
   display: flex;
@@ -32,52 +30,51 @@
 }
 
 .card:hover {
-  border-color: var(--border-accent);
+  border-color: var(--border-color);
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08);
 }
 
 .cardHeaderLink {
-  text-decoration: none;
   display: block;
 }
 
 .cardImage {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 240px;
   overflow: hidden;
+  background: var(--bg-secondary);
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover .image {
-  transform: scale(1.04);
+  transform: scale(1.08);
 }
 
 .categoryBadge {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  color: #ffffff;
+  top: 20px;
+  left: 20px;
+  padding: 8px 18px;
+  background: var(--bg-card);
+  color: var(--text-main);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .cardBody {
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -90,22 +87,22 @@
 
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin-bottom: 12px;
   color: var(--text-main);
   transition: color 0.2s ease;
 }
 
 .card:hover .cardTitle {
-  color: var(--accent-primary);
+  color: var(--text-main);
 }
 
 .description {
   color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.7;
   margin-bottom: 20px;
   flex-grow: 1;
 }
@@ -118,12 +115,13 @@
 }
 
 .tag {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 4px 12px;
+  padding: 6px 14px;
   background: var(--bg-secondary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   color: var(--text-muted);
+  letter-spacing: 0.3px;
 }
 
 .cardFooter {
@@ -138,9 +136,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  padding: 12px 0;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
   color: var(--text-main);
   font-size: 0.85rem;
   font-weight: 600;
@@ -149,8 +147,9 @@
 }
 
 .btnOutline:hover {
-  background: var(--bg-secondary);
-  border-color: var(--border-accent);
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #1a1a1a;
 }
 
 .btnWhatsapp {
@@ -158,9 +157,9 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 10px 0;
+  padding: 12px 0;
   background: #25D366;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: white;
   font-size: 0.85rem;
   font-weight: 600;
@@ -178,7 +177,7 @@
 }
 
 @media (max-width: 768px) {
-  .servicesSection { padding: 72px 0; }
+  .servicesSection { padding: 80px 0; }
   .header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .grid { grid-template-columns: 1fr; }
   .cardFooter { grid-template-columns: 1fr; }

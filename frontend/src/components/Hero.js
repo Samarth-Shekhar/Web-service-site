@@ -57,10 +57,9 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      {/* Background effects */}
-      <div className={styles.bgGrid}></div>
-      <div className={styles.glowOrb1}></div>
-      <div className={styles.glowOrb2}></div>
+      {/* Abstract decorative shapes */}
+      <div className={styles.bgShape1}></div>
+      <div className={styles.bgShape2}></div>
 
       <div className={`container ${styles.content}`}>
         <div className={styles.topRow}>
@@ -84,7 +83,7 @@ export default function Hero() {
             <div className={styles.ctas}>
               <Link href="/contact" className="btn btn-primary btn-lg">
                 Hey, help us build our thing!
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '8px' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Link>
@@ -95,14 +94,21 @@ export default function Hero() {
           </div>
 
           <div className={styles.imageSide}>
-            <div className={`${styles.heroImageWrapper} ${styles.floatingImage}`}>
+            <div className={styles.heroImageWrapper}>
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                 alt="Creative team collaborating on web development"
                 className={styles.heroImage}
-                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
-              <div className={styles.imageGlow}></div>
+              <div className={styles.imageOverlay}></div>
+              {/* Floating metric card */}
+              <div className={styles.floatingCard}>
+                <div className={styles.floatingCardIcon}>📈</div>
+                <div>
+                  <div className={styles.floatingCardValue}>+98%</div>
+                  <div className={styles.floatingCardLabel}>Client Satisfaction</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ import styles from './Navbar.module.css';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const pathname = usePathname();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
 
     // Read the current theme from the DOM attribute (set by ThemeScript)
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     setTheme(currentTheme);
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -43,12 +43,11 @@ export default function Navbar() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoIcon}>
-            {/* Flexing bicep with code tattoo */}
             <img 
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/vorcit-bicep.png`} 
               alt="VorcIT Logo" 
-              width={34} 
-              height={34} 
+              width={28} 
+              height={28} 
               className={styles.logoImg}
             />
           </span>
@@ -79,6 +78,9 @@ export default function Navbar() {
           
           <Link href="/contact" className="btn btn-primary">
             Start a Project
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </Link>
         </div>
 

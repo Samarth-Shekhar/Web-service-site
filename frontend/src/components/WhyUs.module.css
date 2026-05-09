@@ -1,62 +1,63 @@
 .section {
   padding: var(--section-padding) 0;
-  background: var(--bg-color);
+  background: var(--bg-secondary);
   position: relative;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .card {
-  padding: 28px 24px;
+  padding: 36px 28px;
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
   transition: all var(--transition-base);
   position: relative;
 }
 
 .card:hover {
-  border-color: var(--border-accent);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-color: var(--accent-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
 }
 
 .stepNumber {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--accent-primary);
-  opacity: 0.2;
+  opacity: 0.4;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .icon {
-  font-size: 1.8rem;
-  margin-bottom: 14px;
+  font-size: 2rem;
+  margin-bottom: 16px;
 }
 
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
 .cardDesc {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.75;
 }
 
 .connector { display: none; }
@@ -66,6 +67,6 @@
 }
 
 @media (max-width: 768px) {
-  .section { padding: 72px 0; }
+  .section { padding: 80px 0; }
   .grid { grid-template-columns: 1fr; }
 }

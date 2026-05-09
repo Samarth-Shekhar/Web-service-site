@@ -1,37 +1,39 @@
 .page { padding-top: var(--nav-height); }
 
-.hero { position: relative; padding: 80px 0 60px; text-align: center; overflow: hidden; }
-.heroOrb { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 70%); top: -200px; left: 50%; transform: translateX(-50%); filter: blur(60px); }
-.heroTitle { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; letter-spacing: -0.03em; }
-.heroSubtitle { font-size: 1.05rem; color: var(--text-tertiary); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+.hero { position: relative; padding: 100px 0 80px; text-align: center; overflow: hidden; background: var(--bg-color); }
+.heroOrb { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--accent-primary); top: -200px; left: 50%; transform: translateX(-50%); filter: blur(80px); opacity: 0.1; }
+.heroTitle { font-family: var(--font-heading); font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; max-width: 800px; margin-left: auto; margin-right: auto; letter-spacing: -0.04em; color: var(--text-main); }
+.heroSubtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
 
-.statsSection { padding: 40px 0 80px; }
-.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.statCard { text-align: center; padding: 36px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); transition: all var(--transition-base); }
-.statCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
-.statValue { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent); }
-.statLabel { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+.statsSection { padding: 40px 0 100px; background: var(--bg-color); }
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.statCard { text-align: center; padding: 40px 24px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+.statCard:hover { border-color: var(--border-color); transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.06); }
+.statValue { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.04em; }
+.statLabel { font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-.missionSection { padding: 64px 0; background: var(--bg-secondary); }
-.missionGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.missionCard { padding: 44px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); }
-.missionIcon { font-size: 2rem; margin-bottom: 16px; }
-.missionCard h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
-.missionCard p { font-size: 0.95rem; color: var(--text-tertiary); line-height: 1.7; }
+.missionSection { padding: 100px 0; background: var(--bg-secondary); }
+.missionGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.missionCard { padding: 56px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+.missionCard:hover { border-color: var(--accent-primary); transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.06); }
+.missionIcon { font-size: 2.4rem; margin-bottom: 24px; }
+.missionCard h3 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); letter-spacing: -0.02em; }
+.missionCard p { font-size: 1rem; color: var(--text-muted); line-height: 1.75; }
 
-.valuesSection { padding: var(--section-padding) 0; }
-.sectionHeader { text-align: center; margin-bottom: 56px; display: flex; flex-direction: column; align-items: center; }
-.valuesGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.valueCard { padding: 36px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); transition: all var(--transition-base); }
-.valueCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
-.valueIcon { font-size: 1.8rem; display: block; margin-bottom: 16px; }
-.valueTitle { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
-.valueDesc { font-size: 0.88rem; color: var(--text-tertiary); line-height: 1.7; }
+.valuesSection { padding: var(--section-padding) 0; background: var(--bg-color); }
+.sectionHeader { text-align: center; margin-bottom: 64px; display: flex; flex-direction: column; align-items: center; }
+.valuesGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.valueCard { padding: 40px 32px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+.valueCard:hover { border-color: var(--accent-primary); transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.06); background: var(--bg-card); }
+.valueIcon { font-size: 2rem; display: block; margin-bottom: 20px; }
+.valueTitle { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.02em; }
+.valueDesc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
 @media (max-width: 1024px) {
   .statsGrid { grid-template-columns: repeat(2, 1fr); }
   .valuesGrid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .statsGrid, .valuesGrid, .missionGrid { grid-template-columns: 1fr; }
+  .missionCard, .valueCard { padding: 32px 24px; }
 }

@@ -1,9 +1,8 @@
 import './globals.css';
 
-import { Inter, Syne } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const syne = Syne({ subsets: ['latin'], variable: '--font-heading' });
 
 export const metadata = {
   title: 'VorcIT — Code Strong. Build Stronger.',
@@ -23,7 +22,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} ${syne.variable} ${inter.variable}`}>
+      <body className={`${inter.className} ${inter.variable}`}>
         <ThemeScript />
         {children}
       </body>
@@ -35,10 +34,10 @@ function ThemeScript() {
   const script = `
     (function() {
       try {
-        var theme = localStorage.getItem('theme') || 'dark';
+        var theme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   `;
