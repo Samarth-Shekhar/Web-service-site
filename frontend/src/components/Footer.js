@@ -39,12 +39,29 @@ export default function Footer() {
         <div className={styles.simpleFooterContent}>
           <div className={styles.brandInfo}>
             <Link href="/" className={styles.logo}>
-              <span className={styles.brandName}>Web Services</span>
+              <div className={styles.logoIcon}>
+                <img 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/vorcit-bicep.png`}
+                  alt="VorcIT Bicep"
+                  className={styles.logoImg}
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className={styles.logoText}>
+                <span className={styles.logoVorc}>Vorc</span>
+                <span className={styles.logoIT}>IT</span>
+              </span>
             </Link>
             <p className={styles.description}>
-              Providing premium digital solutions, MVP development, and automation.
+              We help you build smarter, adapt faster, and move with confidence. Code Strong. Build Stronger.
             </p>
-            <a href="mailto:samarthshekhar12@gmail.com" className={styles.contactEmail}>samarthshekhar12@gmail.com</a>
+            <Link href="/contact" className={styles.getStartedBtn}>
+              GET STARTED
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
           </div>
           <div className={styles.footerLinks}>
             <Link href="/services">Services</Link>
@@ -56,7 +73,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
           <div className={styles.copyright}>
-            © {new Date().getFullYear()} Web Services. All rights reserved.
+            © {new Date().getFullYear()} VorcIT. All rights reserved.
           </div>
         </div>
       </div>

@@ -67,12 +67,57 @@
 .logo {
   display: flex;
   align-items: center;
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--text-main);
+  gap: 12px;
   text-decoration: none;
   margin-bottom: 16px;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-primary);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoIcon {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(209, 250, 101, 0.4);
+}
+
+.logoImg {
+  display: block;
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+}
+
+.logoText {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+}
+
+.logoVorc {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.logoIT {
+  font-weight: 900;
+  color: var(--text-muted);
 }
 
 .description {
@@ -82,11 +127,25 @@
   margin-bottom: 24px;
 }
 
-.contactEmail {
-  font-weight: 600;
-  color: var(--accent-primary);
+.getStartedBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent-primary);
+  color: #0b0b0b;
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.getStartedBtn:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(209, 250, 101, 0.3);
 }
 
 .footerLinks {

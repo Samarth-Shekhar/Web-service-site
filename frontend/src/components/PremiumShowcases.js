@@ -73,7 +73,6 @@ export default function PremiumShowcases() {
                   </div>
                   <h3>{title}</h3>
                   <p>{copy}</p>
-                  <div className={styles.paperLines}><i /><i /><i /></div>
                 </article>
               </ScrollReveal>
             ))}
