@@ -76,11 +76,13 @@ export default function Navbar() {
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
           
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btnLime">
             Start a Project
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <span className="btnIconWrap">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
           </Link>
         </div>
 
@@ -107,8 +109,13 @@ export default function Navbar() {
             {link.name}
           </Link>
         ))}
-        <Link href="/contact" className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }}>
+        <Link href="/contact" className="btnLime" style={{ width: '100%', marginTop: '20px', justifyContent: 'center' }}>
           Start a Project
+          <span className="btnIconWrap">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </span>
         </Link>
       </div>
     </nav>

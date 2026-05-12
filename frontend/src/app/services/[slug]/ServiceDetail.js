@@ -20,8 +20,8 @@ export default function ServiceDetail({ service, slug }) {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroOrb}></div>
-        <div className="container">
+        <div className={styles.heroBg}></div>
+        <div className="container" style={{position: 'relative', zIndex: 10}}>
           <ScrollReveal>
             <div className={styles.breadcrumb}>
               <Link href="/">Home</Link><span>/</span>
