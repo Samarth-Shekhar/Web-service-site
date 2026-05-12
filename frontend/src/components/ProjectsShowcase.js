@@ -36,9 +36,7 @@ const FALLBACK_PROJECTS = [
     description: 'Personalized meal planning SaaS with AI recipes, nutrition goals, grocery lists, and user dashboards.',
     category: 'Web & SaaS',
     tech_stack: ['React', 'Node.js', 'OpenAI'],
-    github_link: 'https://github.com/Samarth-Shekhar',
-    live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1498837167922-41c46b1029c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'Built around weekly planning, dietary preferences, and repeatable subscription workflows for health-focused consumers.',
     featured: true
   },

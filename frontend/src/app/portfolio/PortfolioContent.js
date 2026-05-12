@@ -8,7 +8,8 @@ export default function PortfolioContent() {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <div className="container">
+        <div className={styles.heroBg}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <span className="section-label">Portfolio</span>
           <h1 className={styles.heroTitle}>
             Premium builds across web, AI, automation, and research

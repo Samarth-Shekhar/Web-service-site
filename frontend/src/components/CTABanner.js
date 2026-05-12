@@ -10,7 +10,7 @@ export default function CTABanner() {
       <div className="container">
         <ScrollReveal>
           <div className={styles.banner}>
-            <div className={styles.glowEffect}></div>
+            <div className={styles.heroBg}></div>
             <div className={styles.content}>
               <span className={styles.badge}>Let&apos;s Work Together</span>
               <h2 className={styles.title}>

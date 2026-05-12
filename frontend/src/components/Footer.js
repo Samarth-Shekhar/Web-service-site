@@ -28,7 +28,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.ctaSection}>
-        <div className="container text-center">
+        <div className={styles.heroBg}></div>
+        <div className="container text-center" style={{ position: 'relative', zIndex: 10 }}>
           <h2 className={styles.ctaTitle}>Ready to build something amazing?</h2>
           <p className={styles.ctaSubtitle}>From strategy to implementation, we create digital solutions that deliver measurable impact.</p>
           <Link href="/contact" className="btnLime">
