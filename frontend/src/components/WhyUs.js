@@ -13,7 +13,7 @@ const consultingCards = [
     ),
     title: 'AI strategy',
     description: 'We help you identify opportunities for AI adoption and implement the right solutions.',
-    image: null
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
   },
   {
     icon: (
@@ -33,7 +33,7 @@ const consultingCards = [
     ),
     title: 'Data & insights',
     description: 'We help you identify opportunities for Big Data and implement the right analytics.',
-    image: null
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
   }
 ];
 

@@ -30,8 +30,11 @@ export default function Footer() {
       <div className={styles.massiveAnimatedText}>
         <div className={styles.textTrack}>
           <span>LET'S WORK TOGETHER</span>
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/vorcit-bicep.png`} alt="VorcIT" className={styles.trackLogo} />
           <span>LET'S WORK TOGETHER</span>
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/vorcit-bicep.png`} alt="VorcIT" className={styles.trackLogo} />
           <span>LET'S WORK TOGETHER</span>
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/vorcit-bicep.png`} alt="VorcIT" className={styles.trackLogo} />
         </div>
       </div>
       
