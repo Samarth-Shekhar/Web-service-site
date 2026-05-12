@@ -27,6 +27,21 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.ctaSection}>
+        <div className="container text-center">
+          <h2 className={styles.ctaTitle}>Ready to build something amazing?</h2>
+          <p className={styles.ctaSubtitle}>From strategy to implementation, we create digital solutions that deliver measurable impact.</p>
+          <Link href="/contact" className="btnLime">
+            GET STARTED
+            <span className="btnIconWrap">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </Link>
+        </div>
+      </div>
+
       <div className={styles.massiveAnimatedText}>
         <div className={styles.textTrack}>
           <span>LET'S WORK TOGETHER</span>
@@ -59,12 +74,6 @@ export default function Footer() {
             <p className={styles.description}>
               We help you build smarter, adapt faster, and move with confidence. Code Strong. Build Stronger.
             </p>
-            <Link href="/contact" className={styles.getStartedBtn}>
-              GET STARTED
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
           </div>
           <div className={styles.footerLinks}>
             <Link href="/services">Services</Link>

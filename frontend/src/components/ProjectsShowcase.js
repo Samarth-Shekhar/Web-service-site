@@ -25,7 +25,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['Next.js', 'Supabase', 'Stripe'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'Designed for busy cafes that need table bookings, digital menus, stock visibility, and a cleaner customer journey from discovery to order.',
     featured: true
   },
@@ -38,7 +38,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['React', 'Node.js', 'OpenAI'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1498837167922-41c46b1029c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'Built around weekly planning, dietary preferences, and repeatable subscription workflows for health-focused consumers.',
     featured: true
   },
@@ -51,7 +51,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['MERN', 'Maps API', 'Socket.io'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'A scalable delivery workflow for shipment creation, live status updates, proof of delivery, and branch-level monitoring.',
     featured: true
   },
@@ -64,7 +64,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['Python', 'LangChain', 'FastAPI'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'Created to reduce repetitive broker work while improving response speed, lead scoring, and buyer-property matching.',
     featured: true
   },
@@ -77,7 +77,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['React', 'LaTeX', 'PDF.js'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'A research operations layer for students and teams managing citations, publication stages, technical reports, and presentations.',
     featured: true
   },
@@ -90,7 +90,7 @@ const FALLBACK_PROJECTS = [
     tech_stack: ['Python', 'Selenium', 'NLP'],
     github_link: 'https://github.com/Samarth-Shekhar',
     live_link: '#',
-    image_url: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1000&q=80',
+    image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     case_study: 'Built for social research and campaign teams that need clean, repeatable audience intelligence from public engagement data.',
     featured: false
   }
