@@ -159,6 +159,20 @@ export default function ContactContent() {
                     </div>
                   </div>
 
+                  <div className={styles.formRow}>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="contact-date">Schedule a Call / Meeting</label>
+                      <input 
+                        id="contact-date"
+                        type="datetime-local" 
+                        name="scheduleDate" 
+                        className="form-input" 
+                        value={formData.scheduleDate || ''}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+
                   <div className="form-group">
                     <label className="form-label" htmlFor="contact-message">Your Message</label>
                     <textarea 

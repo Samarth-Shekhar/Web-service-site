@@ -1,293 +1,82 @@
 .section {
   padding: 100px 0;
   background: var(--bg-color);
-  position: relative;
+  overflow: hidden;
 }
 
 .header {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
+  margin-bottom: 60px;
 }
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #111;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
   letter-spacing: -0.04em;
+  margin-top: 16px;
 }
 
-.blueDot {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: #3b82f6;
-  border-radius: 50%;
-  margin: 0 4px;
-  transform: translateY(2px);
-}
-
-.limeDot {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: #D1FA65;
-  border-radius: 50%;
-  margin: 0 4px;
-  transform: translateY(2px);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.cardWrapper {
-  height: 100%;
-}
-
-/* Base Card styles */
-.blueCard, .whiteCard {
-  border-radius: 32px;
-  padding: 32px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-}
-
-.blueCard:hover, .whiteCard:hover, .splitCol > div:hover {
-  transform: translateY(-4px);
-}
-
-/* Blue Card */
-.blueCard {
-  background: #3b82f6;
-  color: #fff;
-  justify-content: space-between;
-}
-
-.blueCardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.ipsumLogo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-
-.barIcon {
-  background: #fff;
-  color: #3b82f6;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blueCardImage {
-  height: 180px;
-  border-radius: 20px;
+.marqueeContainer {
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 30px 0;
   overflow: hidden;
-  margin-bottom: 24px;
-}
-
-.blueCardImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.blueCardContent {
-  background: #fff;
-  color: #111;
-  padding: 24px;
-  border-radius: 20px;
-}
-
-.blueCardContent h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
-}
-
-.blueCardContent p {
-  font-size: 0.9rem;
-  color: #4b5563;
-  line-height: 1.5;
-}
-
-/* White Card */
-.whiteCard {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-}
-
-.smallLabel {
-  font-size: 0.9rem;
-  color: #6b7280;
-  margin-bottom: 12px;
-}
-
-.whiteCard h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #111;
-  margin-bottom: 32px;
-  letter-spacing: -1px;
-}
-
-.avatars {
   display: flex;
-  margin-bottom: 24px;
+  white-space: nowrap;
+  position: relative;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
-.avatars img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  object-fit: cover;
-  margin-left: -12px;
-}
-
-.avatars img:first-child {
-  margin-left: 0;
-}
-
-.quote {
-  font-size: 1rem;
-  color: #4b5563;
-  line-height: 1.6;
-  font-style: italic;
-  margin-top: auto;
-}
-
-/* Split Column */
-.splitCol {
+.marqueeWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  height: 100%;
+  animation: scrollCompanies 30s linear infinite;
+  width: max-content;
 }
 
-.limeCard, .blackCard {
-  border-radius: 32px;
-  padding: 32px;
-  transition: transform 0.3s ease;
+.marqueeContainer:hover .marqueeWrapper {
+  animation-play-state: paused;
 }
 
-.limeCard {
-  background: #D1FA65;
-  color: #111;
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-}
-
-.limeCard h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 24px;
-  letter-spacing: -1px;
-}
-
-.limeDesc {
-  font-size: 0.95rem;
-  color: #111;
-  line-height: 1.5;
-  margin-top: auto;
-}
-
-.blackCard {
-  background: #111;
-  color: #fff;
-  flex: 1;
+.companyItem {
   display: flex;
   align-items: center;
+  gap: 40px;
+  padding-right: 40px;
 }
 
-.blackCard p {
-  font-size: 1.1rem;
-  color: #d1d5db;
+.companyName {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.companyName:hover {
+  color: var(--accent-primary);
 }
 
-/* Responsive Design */
+.separator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+}
+
+@keyframes scrollCompanies {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
 @media (max-width: 768px) {
-  .section {
-    padding: 80px 0;
-  }
-  .marqueeItem {
-    flex: 0 0 160px;
-  }
-
-  .companyCard {
-    padding: 14px;
-    min-height: 120px;
-  }
-
-  .logoWrapper {
-    width: 56px;
-    height: 56px;
-  }
-
-  .companyName {
-    font-size: 0.8rem;
-  }
-
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .statCard {
-    padding: 24px;
-  }
-
-  .statValue {
-    font-size: 1.8rem;
-  }
-
-  .statLabel {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .marqueeItem {
-    flex: 0 0 130px;
-  }
-
-  .companyCard {
-    padding: 10px;
-    min-height: 100px;
-  }
-
-  .logoWrapper {
-    width: 48px;
-    height: 48px;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
+  .companyName { font-size: 1.4rem; }
+  .companyItem { gap: 20px; padding-right: 20px; }
 }

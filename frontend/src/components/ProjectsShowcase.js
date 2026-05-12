@@ -227,12 +227,6 @@ export default function ProjectsShowcase({ limit = 6, showViewAll = true }) {
                         <button type="button" className={styles.link} onClick={() => setSelectedProject(project)}>
                           Case Study
                         </button>
-                        {project.github_link && (
-                          <a href={project.github_link} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                            GitHub
-                          </a>
-                        )}
-                        
                       </div>
                     </div>
                 </article>
