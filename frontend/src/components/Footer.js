@@ -27,6 +27,14 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.massiveAnimatedText}>
+        <div className={styles.textTrack}>
+          <span>LET'S WORK TOGETHER</span>
+          <span>LET'S WORK TOGETHER</span>
+          <span>LET'S WORK TOGETHER</span>
+        </div>
+      </div>
+      
       <div className="container">
         <div className={styles.grid}>
           {/* Brand & Newsletter Column */}

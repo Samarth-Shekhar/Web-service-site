@@ -11,6 +11,7 @@ import Testimonials from '@/components/Testimonials';
 import CTABanner from '@/components/CTABanner';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import ServicesMarquee from '@/components/ServicesMarquee';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ServicesMarquee />
         <ServiceSelector />
         <ClientLogos />
         <ServicesPreview />

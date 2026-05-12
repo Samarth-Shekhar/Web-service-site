@@ -6,6 +6,51 @@
   color: #ffffff;
 }
 
+.massiveAnimatedText {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0 60px;
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  border-bottom: 1px solid #333333;
+  margin-bottom: 80px;
+  cursor: pointer;
+}
+
+.textTrack {
+  display: flex;
+  animation: scrollTextTrack 25s linear infinite;
+  width: max-content;
+}
+
+.textTrack span {
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+  padding-right: 40px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1;
+}
+
+.massiveAnimatedText:hover .textTrack span {
+  color: var(--accent-primary);
+  -webkit-text-stroke: 0px transparent;
+  transform: skewX(-5deg);
+}
+
+.massiveAnimatedText:hover .textTrack {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTextTrack {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
 .grid {
   display: flex;
   justify-content: space-between;
