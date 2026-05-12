@@ -74,8 +74,8 @@ export default function ContactContent() {
     <div className={styles.page}>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroOrb}></div>
-        <div className="container">
+        <div className={styles.heroBg}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal>
             <span className="section-label">Get In Touch</span>
             <h1 className={styles.heroTitle}>

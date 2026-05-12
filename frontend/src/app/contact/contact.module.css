@@ -1,7 +1,22 @@
 .page { padding-top: var(--nav-height); }
 
-.hero { position: relative; padding: 100px 0 60px; text-align: center; overflow: hidden; background: var(--bg-color); }
-.heroOrb { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--accent-primary); top: -200px; left: 50%; transform: translateX(-50%); filter: blur(80px); opacity: 0.1; }
+.hero { position: relative; padding: 150px 0 80px; text-align: center; overflow: hidden; background: var(--bg-color); }
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+}
+.heroBg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(29, 115, 232, 0.4) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
 .heroTitle { font-family: var(--font-heading); font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.04em; color: var(--text-main); }
 .heroSubtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
 
