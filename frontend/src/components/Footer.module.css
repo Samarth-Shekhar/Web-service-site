@@ -46,7 +46,7 @@
 }
 
 .massiveAnimatedText:hover .textTrack span {
-  color: var(--accent-primary);
+  color: var(--text-main);
   -webkit-text-stroke: 0px transparent;
   transform: skewX(-5deg);
 }
