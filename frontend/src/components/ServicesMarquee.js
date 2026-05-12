@@ -3,7 +3,7 @@
 import styles from './ServicesMarquee.module.css';
 
 const services = [
-  "UI/UX Design", "MVP Development", "Web Development", "App Development", "Branding", "SEO Optimization", "Marketing", "Cloud Solutions"
+  "Academic & Research", "AI Automation", "MVP Development", "Web Development", "UI/UX Design", "Cloud Solutions", "SEO Optimization"
 ];
 
 // Duplicate items to ensure smooth infinite scroll
