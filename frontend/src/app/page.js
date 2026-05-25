@@ -8,7 +8,6 @@ import PremiumShowcases from '@/components/PremiumShowcases';
 import ServiceSelector from '@/components/ServiceSelector';
 import WhyUs from '@/components/WhyUs';
 import Testimonials from '@/components/Testimonials';
-import CTABanner from '@/components/CTABanner';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import ServicesMarquee from '@/components/ServicesMarquee';
@@ -28,7 +27,6 @@ export default function Home() {
         <PremiumShowcases />
         <WhyUs />
         <Testimonials />
-        <CTABanner />
       </main>
       <Footer />
       <FloatingWhatsApp />

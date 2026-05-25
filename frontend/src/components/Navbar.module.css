@@ -201,3 +201,69 @@
   .desktopNav, .actions { display: none; }
   .mobileToggle { display: flex; }
 }
+
+/* Force dark text on transparent navbar over light clouds background (light mode) */
+.navbar:not(.scrolled) .logoVorc {
+  color: #111111 !important;
+}
+
+.navbar:not(.scrolled) .logoIT {
+  color: #4b5563 !important;
+}
+
+.navbar:not(.scrolled) .navLink {
+  color: #4b5563 !important;
+}
+
+.navbar:not(.scrolled) .navLink:hover,
+.navbar:not(.scrolled) .navLink.active {
+  color: #111111 !important;
+}
+
+.navbar:not(.scrolled) .themeToggle {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #111111 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.navbar:not(.scrolled) .themeToggle:hover {
+  border-color: #111111 !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar:not(.scrolled) .mobileToggle span {
+  background: #111111 !important;
+}
+
+/* Force light text on transparent navbar over dimmed clouds background (dark mode) */
+[data-theme='dark'] .navbar:not(.scrolled) .logoVorc {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .logoIT {
+  color: #d1d5db !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .navLink {
+  color: #d1d5db !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .navLink:hover,
+[data-theme='dark'] .navbar:not(.scrolled) .navLink.active {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .themeToggle {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .themeToggle:hover {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme='dark'] .navbar:not(.scrolled) .mobileToggle span {
+  background: #ffffff !important;
+}

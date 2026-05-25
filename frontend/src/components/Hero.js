@@ -21,7 +21,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctas}>
-            <Link href="/portfolio" className="btn btn-outline">
+            <Link href="/portfolio" className={`btn ${styles.btnOutline}`}>
               VIEW DEMO
             </Link>
             <Link href="/contact" className={`btn ${styles.btnLime}`}>

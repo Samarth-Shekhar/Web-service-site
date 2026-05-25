@@ -6,8 +6,12 @@
   align-items: center;
   padding-top: calc(var(--nav-height) + 60px);
   overflow: hidden;
-  background: var(--bg-color);
-  transition: background-color var(--transition-smooth);
+  background: #e8f4fd;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] .hero {
+  background: #0e0e0e;
 }
 
 .heroBg {
@@ -16,7 +20,6 @@
   background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-position: center bottom;
-  opacity: 0.9;
   z-index: 0;
   pointer-events: none;
 }
@@ -25,7 +28,22 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(29, 115, 232, 0.4) 0%, rgba(59, 130, 246, 0.1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 244, 253, 0.55) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+[data-theme='dark'] .heroBg::after {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.7) 0%,
+    rgba(14, 14, 14, 0.6) 50%,
+    rgba(14, 14, 14, 0.85) 100%
+  );
 }
 
 .content {
@@ -51,6 +69,7 @@
   letter-spacing: -0.05em;
   font-weight: 700;
   color: var(--text-main);
+  transition: color 0.3s ease;
 }
 
 .subtitle {
@@ -59,6 +78,19 @@
   max-width: 650px;
   line-height: 1.6;
   margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.btnOutline {
+  background: transparent !important;
+  color: var(--text-main) !important;
+  border: 2px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.btnOutline:hover {
+  border-color: var(--accent-primary) !important;
+  background: var(--accent-glow) !important;
 }
 
 .ctas {
@@ -131,7 +163,7 @@
   height: 240px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
   background: #fff;
   display: flex;
@@ -154,13 +186,13 @@
 .card7 { transform: translateX(480px) translateY(80px) rotate(12deg) scale(0.75); z-index: 1; }
 
 /* Specific Hover Animations */
-.card1:hover { transform: translateX(-400px) translateY(60px) rotate(-6deg) scale(0.8); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card2:hover { transform: translateX(-260px) translateY(20px) rotate(-4deg) scale(0.9); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card3:hover { transform: translateX(-120px) translateY(-10px) rotate(-2deg) scale(1.0); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card4:hover { transform: translateX(40px) translateY(-20px) rotate(0deg) scale(1.1); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card5:hover { transform: translateX(200px) translateY(-10px) rotate(2deg) scale(1.0); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card6:hover { transform: translateX(340px) translateY(20px) rotate(4deg) scale(0.9); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-.card7:hover { transform: translateX(480px) translateY(60px) rotate(6deg) scale(0.8); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
+.card1:hover { transform: translateX(-400px) translateY(60px) rotate(-6deg) scale(0.8); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card2:hover { transform: translateX(-260px) translateY(20px) rotate(-4deg) scale(0.9); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card3:hover { transform: translateX(-120px) translateY(-10px) rotate(-2deg) scale(1.0); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card4:hover { transform: translateX(40px) translateY(-20px) rotate(0deg) scale(1.1); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card5:hover { transform: translateX(200px) translateY(-10px) rotate(2deg) scale(1.0); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card6:hover { transform: translateX(340px) translateY(20px) rotate(4deg) scale(0.9); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+.card7:hover { transform: translateX(480px) translateY(60px) rotate(6deg) scale(0.8); z-index: 20; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
 
 /* Specific Card Styles */
 .darkCard { background: #111; color: #fff; padding: 24px; height: 100%; display: flex; align-items: center; border: 2px solid #333; }
